@@ -21,7 +21,7 @@ $ composer require --dev localheinz/php-cs-fixer-config-template
 
 Pick one of the rule sets:
 
-* `Localheinz\PhpCsFixer\RuleSet\Custom`
+* [`Localheinz\PhpCsFixer\RuleSet\Custom`](src/RuleSet/Custom.php)
 
 Create a configuration file `.php_cs` in the root of your project:
 
@@ -67,8 +67,8 @@ All configuration examples use the caching feature, and if you want to use it as
 +@see https://github.com/localheinz/php-cs-fixer-config-template
 +EOF;
 
--$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php72());
-+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php72($header));
+-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
++$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom($header));
 
  $config->getFinder()->in(__DIR__);
  $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/php_cs.cache');
@@ -101,8 +101,8 @@ file headers will be added to PHP files, for example:
 
  use Localheinz\PhpCsFixer\Config;
 
--$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php72());
-+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php72(), [
+-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
++$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom(), [
 +    'mb_str_functions' => false,
 +    'strict_comparison' => false,
 +]);
