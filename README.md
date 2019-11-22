@@ -21,7 +21,7 @@ $ composer require --dev localheinz/php-cs-fixer-config-template
 
 Pick one of the rule sets:
 
-* `Localheinz\PhpCsFixer\RuleSet\Php72`
+* `Localheinz\PhpCsFixer\RuleSet\Custom`
 
 Create a configuration file `.php_cs` in the root of your project:
 
