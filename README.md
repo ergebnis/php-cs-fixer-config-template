@@ -59,7 +59,7 @@ All configuration examples use the caching feature, and if you want to use it as
  use Localheinz\PhpCsFixer\Config;
 
 +$header = <<<EOF
-+Copyright (c) 2017 Andreas Möller
++Copyright (c) 2019 Andreas Möller
 +
 +For the full copyright and license information, please view
 +the LICENSE file that was distributed with this source code.
@@ -83,7 +83,7 @@ file headers will be added to PHP files, for example:
 <?php
 
 /**
- * Copyright (c) 2017 Andreas Möller
+ * Copyright (c) 2019 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
