@@ -1,7 +1,7 @@
 # php-cs-fixer-config-template
 
-[![CI Status](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![codecov](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
+[![Continuous Integration](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Code Coverage](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
