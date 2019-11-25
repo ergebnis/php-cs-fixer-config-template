@@ -8,12 +8,12 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/php-cs-fixer-config-template
+ * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
-namespace Localheinz\PhpCsFixer\Config\RuleSet;
+namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
-use Localheinz\PhpCsFixer\Config\RuleSet;
+use Ergebnis\PhpCsFixer\Config\RuleSet;
 
 /**
  * @internal
