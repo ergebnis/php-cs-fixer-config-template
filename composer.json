@@ -1,8 +1,8 @@
 {
-  "name": "localheinz/php-cs-fixer-config-template",
+  "name": "ergebnis/php-cs-fixer-config-template",
   "type": "library",
   "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
-  "homepage": "https://github.com/localheinz/php-cs-fixer-config-template",
+  "homepage": "https://github.com/ergebnis/php-cs-fixer-config-template",
   "license": "MIT",
   "authors": [
     {
@@ -31,16 +31,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\PhpCsFixer\\Config\\": "src"
+      "Ergebnis\\PhpCsFixer\\Config\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\PhpCsFixer\\Config\\Test\\": "test"
+      "Ergebnis\\PhpCsFixer\\Config\\Test\\": "test"
     }
   },
   "support": {
-    "issues": "https://github.com/localheinz/php-cs-fixer-config-template/issues",
-    "source": "https://github.com/localheinz/php-cs-fixer-config-template"
+    "issues": "https://github.com/ergebnis/php-cs-fixer-config-template/issues",
+    "source": "https://github.com/ergebnis/php-cs-fixer-config-template"
   }
 }

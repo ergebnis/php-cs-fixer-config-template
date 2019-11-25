@@ -1,9 +1,9 @@
 # php-cs-fixer-config-template
 
-[![CI Status](https://github.com/localheinz/php-cs-fixer-config-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/php-cs-fixer-config-template/actions)
-[![codecov](https://codecov.io/gh/localheinz/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/php-cs-fixer-config-template)
-[![Latest Stable Version](https://poser.pugx.org/localheinz/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/localheinz/php-cs-fixer-config-template)
-[![Total Downloads](https://poser.pugx.org/localheinz/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/localheinz/php-cs-fixer-config-template)
+[![CI Status](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![codecov](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
+[![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
+[![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
 Provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
@@ -12,7 +12,7 @@ Provides a configuration factory and multiple rule sets for [`friendsofphp/php-c
 Run
 
 ```sh
-$ composer require --dev localheinz/php-cs-fixer-config-template
+$ composer require --dev ergebnis/php-cs-fixer-config-template
 ```
 
 ## Usage
@@ -21,14 +21,14 @@ $ composer require --dev localheinz/php-cs-fixer-config-template
 
 Pick one of the rule sets:
 
-* [`Localheinz\PhpCsFixer\RuleSet\Custom`](src/RuleSet/Custom.php)
+* [`Ergebnis\PhpCsFixer\RuleSet\Custom`](src/RuleSet/Custom.php)
 
 Create a configuration file `.php_cs` in the root of your project:
 
 ```php
 <?php
 
-use Localheinz\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
 
@@ -56,7 +56,7 @@ All configuration examples use the caching feature, and if you want to use it as
 ```diff
  <?php
 
- use Localheinz\PhpCsFixer\Config;
+ use Ergebnis\PhpCsFixer\Config;
 
 +$header = <<<EOF
 +Copyright (c) 2019 Andreas Möller
@@ -64,7 +64,7 @@ All configuration examples use the caching feature, and if you want to use it as
 +For the full copyright and license information, please view
 +the LICENSE file that was distributed with this source code.
 +
-+@see https://github.com/localheinz/php-cs-fixer-config-template
++@see https://github.com/ergebnis/php-cs-fixer-config-template
 +EOF;
 
 -$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
@@ -88,7 +88,7 @@ file headers will be added to PHP files, for example:
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/php-cs-fixer-config-template
+ * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 ```
 
@@ -99,7 +99,7 @@ file headers will be added to PHP files, for example:
 ```diff
  <?php
 
- use Localheinz\PhpCsFixer\Config;
+ use Ergebnis\PhpCsFixer\Config;
 
 -$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
 +$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom(), [
