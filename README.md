@@ -9,7 +9,11 @@ Provides a configuration factory and multiple rule sets for [`friendsofphp/php-c
 
 ## Motivation
 
+### Shareability
+
 The primary motivation for this package is the necessity to easily share the configuration for `friendsofphp/php-cs-fixer` across multiple packages within one organization.
+
+### Configuration out of the box
 
 Out of the box, the process for configuring [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer) currently works as follows:
 
@@ -67,6 +71,8 @@ return PhpCsFixer\Config::create()
     ]);
 ```
 
+### Sharing plain PHP files
+
 If we created a package and shared plain PHP files returning the rules, the configuration could look like this:
 
 ```diff
@@ -99,9 +105,15 @@ If we created a package and shared plain PHP files returning the rules, the conf
 
 However, dealing with paths here is not so much fun. If we could use a class instead, we would only need to know the class name, not the path to it, and that would be a lot better.
 
-Nonetheless, if we decided to create an implementation of [`PhpCsFixer\ConfigInterface`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.16.0/src/ConfigInterface.php), we would soon realize that this interface has a lot of methods.
+### Sharing configuration classes
+
+Nonetheless, if we decided to create an implementation of [`PhpCsFixer\ConfigInterface`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.16.0/src/ConfigInterface.php), we would soon realize that this interface has a lot of methods that we would prefer not to implement.
+
+### Fixer behaviour might depend on PHP version
 
 Now, there's another issue: there are fixers which behave differently depending on the PHP version they are run on, and we want to make sure that we run those fixers only when we want to.
+
+### Sharing rule sets and a factory
 
 That is, what we eventually want is a rule set that provides
 
@@ -165,6 +177,8 @@ When using the factory and the custom rule set, the configuration file could loo
 +return $config;
 ```
 
+### Discovery of newly added fixers
+
 But that's not all - using the [`Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet\AbstractRuleSetTestCase`](test/Unit/RuleSet/AbstractRuleSetTestCase.php), we can also ensure that a configuration:
 
 - is the same as expected (a bit boring, compare [`Ergebnis\PhpCsFixer\Config\RuleSet\Custom`](src/RuleSet/Custom.php) with [`Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet\Custom`](test/Unit/RuleSet/CustomTest.php)
@@ -172,7 +186,7 @@ But that's not all - using the [`Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet\Ab
 
 The latter is rather interesting - when using  [Dependabot](https://dependabot.com), new releases of  `friendsofphp/php-cs-fixer` that add new fixers will result in pull requests with failing builds. Otherwise, we might not be aware of these new fixers.
 
-Personally, I believe this is a lot better than sharing PHP files returning arrays of rules.
+:tipping_hand_man: Personally, I believe this is a lot better than sharing PHP files returning arrays of rules.
 
 ## Installation
 
