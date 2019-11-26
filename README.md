@@ -328,7 +328,7 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
      "php": "^7.2",
    },
    "require-dev": {
-     "friendsofphp/php-cs-fixer": "~2.16.0"
+     "ergebnis/php-cs-fixer-config": "~1.0.0"
 +  },
 +  "scripts": {
 +    "coding-standards": [
