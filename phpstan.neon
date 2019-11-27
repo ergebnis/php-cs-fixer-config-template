@@ -9,8 +9,8 @@ includes:
 
 parameters:
 	classesAllowedToBeExtended:
-		- Localheinz\PhpCsFixer\Config\RuleSet\AbstractRuleSet
-		- Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet\AbstractRuleSetTestCase
+		- Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet
+		- Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet\AbstractRuleSetTestCase
 	inferPrivatePropertyTypeFromConstructor: true
 	paths:
 		- src

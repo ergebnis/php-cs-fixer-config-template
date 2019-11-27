@@ -6,14 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.24.0...master`][1.24.0...master]
+For a full diff see [`1c2b8be...master`][1c2b8be...master].
 
-### Fixed
-
-* Dropped support for PHP 7.1 ([#221]), by [@localheinz])
-
-[1.24.0...master]: https://github.com/localheinz/php-cs-fixer-config-template/compare/1.24.0...master
-
-[#221]: https://github.com/localheinz/php-cs-fixer-config-template/pull/221
-
-[@localheinz]: https://github.com/localheinz
+[1c2b8be...master]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...master
