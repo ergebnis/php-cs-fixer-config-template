@@ -25,7 +25,7 @@ interface RuleSet
     /**
      * Returns an array of rules along with their configuration.
      *
-     * @return array
+     * @return array<string, bool|array<string, bool|string>>
      */
     public function rules(): array;
 
