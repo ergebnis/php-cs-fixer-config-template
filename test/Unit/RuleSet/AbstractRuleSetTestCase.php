@@ -30,7 +30,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     protected $name;
 
     /**
-     * @var array
+     * @var array<string, bool|array<string, bool|string>>
      */
     protected $rules;
 
@@ -108,9 +108,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     }
 
     /**
-     * @return \Generator
+     * @return \Generator<array<string>>
      */
-    final public function providerValidHeader()
+    final public function providerValidHeader(): \Generator
     {
         $values = [
             'string-empty' => '',
@@ -130,10 +130,10 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @dataProvider providerRuleNames
      *
-     * @param array  $ruleNames
      * @param string $source
+     * @param string[] $ruleNames
      */
-    final public function testRulesAreSortedByName($source, $ruleNames): void
+    final public function testRulesAreSortedByName(string $source, array $ruleNames): void
     {
         $sorted = $ruleNames;
 
@@ -146,9 +146,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     }
 
     /**
-     * @return \Generator
+     * @return \Generator<array{0: string, 1: array<int, string>}>
      */
-    final public function providerRuleNames()
+    final public function providerRuleNames(): \Generator
     {
         $values = [
             'rule set' => self::createRuleSet()->rules(),
@@ -227,7 +227,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             $fixerFactory = FixerFactory::create();
             $fixerFactory->registerBuiltInFixers();
 
-            $builtInFixers = \array_map(static function (Fixer\FixerInterface $fixer) {
+            $builtInFixers = \array_map(static function (Fixer\FixerInterface $fixer): string {
                 return $fixer->getName();
             }, $fixerFactory->getFixers());
         }
@@ -235,6 +235,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         return $builtInFixers;
     }
 
+    /**
+     * @return array<int, int|string>
+     */
     private function configuredFixers(): array
     {
         /**
@@ -242,7 +245,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
          *
          * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/2361
          */
-        $rules = \array_map(static function () {
+        $rules = \array_map(static function (): bool {
             return true;
         }, self::createRuleSet()->rules());
 

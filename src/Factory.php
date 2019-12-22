@@ -21,7 +21,7 @@ final class Factory
      * Creates a configuration based on a rule set.
      *
      * @param RuleSet $ruleSet
-     * @param array   $overrideRules
+     * @param array<string, bool|array<string, bool|string>> $overrideRules
      *
      * @throws \RuntimeException
      *

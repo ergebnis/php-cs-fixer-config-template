@@ -102,9 +102,9 @@ final class FactoryTest extends Framework\TestCase
     }
 
     /**
-     * @return \Generator
+     * @return \Generator<array<int>>
      */
-    public function providerTargetPhpVersion()
+    public function providerTargetPhpVersion(): \Generator
     {
         $values = [
             \PHP_VERSION_ID - 1,
