@@ -101,9 +101,6 @@ final class FactoryTest extends Framework\TestCase
         self::assertSame($rules, $config->getRules());
     }
 
-    /**
-     * @return \Generator<array<int>>
-     */
     public function providerTargetPhpVersion(): \Generator
     {
         $values = [
