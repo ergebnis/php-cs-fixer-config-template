@@ -30,7 +30,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     protected $name;
 
     /**
-     * @var array<string, bool|array<string, bool|string>>
+     * @var array
      */
     protected $rules;
 
@@ -107,9 +107,6 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         self::assertSame($expected, $rules['header_comment']);
     }
 
-    /**
-     * @return \Generator<array<string>>
-     */
     final public function providerValidHeader(): \Generator
     {
         $values = [
@@ -145,9 +142,6 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         ));
     }
 
-    /**
-     * @return \Generator<array{0: string, 1: array<int, string>}>
-     */
     final public function providerRuleNames(): \Generator
     {
         $values = [
@@ -235,9 +229,6 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         return $builtInFixers;
     }
 
-    /**
-     * @return array<int, int|string>
-     */
     private function configuredFixers(): array
     {
         /**
