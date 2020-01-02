@@ -95,7 +95,6 @@ final class FactoryTest extends Framework\TestCase
 
         $config = Config\Factory::fromRuleSet($ruleSet->reveal());
 
-        self::assertInstanceOf(ConfigInterface::class, $config);
         self::assertTrue($config->getUsingCache());
         self::assertTrue($config->getRiskyAllowed());
         self::assertSame($rules, $config->getRules());
@@ -152,7 +151,6 @@ final class FactoryTest extends Framework\TestCase
             $overrideRules
         );
 
-        self::assertInstanceOf(ConfigInterface::class, $config);
         self::assertTrue($config->getUsingCache());
         self::assertTrue($config->getRiskyAllowed());
         self::assertSame(\array_merge($rules, $overrideRules), $config->getRules());

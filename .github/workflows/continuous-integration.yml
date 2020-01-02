@@ -1,14 +1,12 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
+name: "Continuous Integration"
+
 on:
   pull_request:
   push:
     branches:
       - "master"
-    tags:
-      - "**"
-
-name: "Continuous Integration"
 
 env:
   MIN_COVERED_MSI: 100
@@ -34,7 +32,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -87,7 +85,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -124,7 +122,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -140,8 +138,17 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: "composer install --no-interaction --no-progress --no-suggest"
 
+      - name: "Create cache directory for phpstan/phpstan"
+        run: "mkdir -p .build/phpstan"
+
       - name: "Run phpstan/phpstan"
         run: "vendor/bin/phpstan analyse --configuration=phpstan.neon"
+
+      - name: "Create cache directory for vimeo/psalm"
+        run: "mkdir -p .build/psalm"
+
+      - name: "Run vimeo/psalm"
+        run: "vendor/bin/psalm --config=psalm.xml"
 
   tests:
     name: "Tests"
@@ -165,7 +172,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -217,7 +224,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "pcov"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -259,7 +266,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.6.2"
+        uses: "shivammathur/setup-php@1.7.0"
         with:
           coverage: "pcov"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
