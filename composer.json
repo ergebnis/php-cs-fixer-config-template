@@ -16,7 +16,7 @@
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.2.0",
-    "ergebnis/phpstan-rules": "~0.14.0",
+    "ergebnis/phpstan-rules": "~0.14.2",
     "ergebnis/test-util": "~0.9.1",
     "infection/infection": "~0.14.2",
     "jangregor/phpstan-prophecy": "~0.6.0",
