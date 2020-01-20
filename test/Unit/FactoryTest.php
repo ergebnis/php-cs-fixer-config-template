@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019 Andreas Möller
+ * Copyright (c) 2019-2020 Andreas Möller
  *
  * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * the LICENSE.md file that was distributed with this source code.
  *
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
 
 use Ergebnis\PhpCsFixer\Config;
-use PhpCsFixer\ConfigInterface;
 use PHPUnit\Framework;
 
 /**
@@ -24,13 +23,6 @@ use PHPUnit\Framework;
  */
 final class FactoryTest extends Framework\TestCase
 {
-    public function testIsFinal(): void
-    {
-        $reflection = new \ReflectionClass(Config\Factory::class);
-
-        self::assertTrue($reflection->isFinal());
-    }
-
     public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion(): void
     {
         $targetPhpVersion = \PHP_VERSION_ID + 1;
