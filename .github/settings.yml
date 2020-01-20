@@ -72,7 +72,9 @@ repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
+  archived: false
   default_branch: "master"
+  delete_branch_on_merge: true
   description: ":octocat: + :notebook: Provides a GitHub repository template for a configuration factory and a custom rule set for friendsofphp/php-cs-fixer."
   has_downloads: true
   has_issues: true

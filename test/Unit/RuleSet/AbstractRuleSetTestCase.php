@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019 Andreas Möller
+ * Copyright (c) 2019-2020 Andreas Möller
  *
  * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * the LICENSE.md file that was distributed with this source code.
  *
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
@@ -127,7 +127,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @dataProvider providerRuleNames
      *
-     * @param string $source
+     * @param string   $source
      * @param string[] $ruleNames
      */
     final public function testRulesAreSortedByName(string $source, array $ruleNames): void

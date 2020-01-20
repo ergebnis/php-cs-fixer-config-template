@@ -2,8 +2,10 @@
 
 [![Continuous Deployment](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 [![Continuous Integration](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+
 [![Code Coverage](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template/coverage.svg)](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template)
+
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
@@ -445,4 +447,4 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 
 ## License
 
-This package is licensed using the MIT License.
+This package is licensed using the [MIT License](LICENSE.md).
