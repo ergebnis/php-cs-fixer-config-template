@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc4daa73ecffbf9e4b88412b77b72ba7",
+    "content-hash": "e3afe612cbe0e7a85d54905d44affc63",
     "packages": [
         {
             "name": "composer/semver",
@@ -2074,16 +2074,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.15.1",
+            "version": "0.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "96c6a3fc5714f96345ecfa27ade6f361adde5ddc"
+                "reference": "91e935e02d3cc5bf764138e23f1d276683ffab78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/96c6a3fc5714f96345ecfa27ade6f361adde5ddc",
-                "reference": "96c6a3fc5714f96345ecfa27ade6f361adde5ddc",
+                "url": "https://api.github.com/repos/infection/infection/zipball/91e935e02d3cc5bf764138e23f1d276683ffab78",
+                "reference": "91e935e02d3cc5bf764138e23f1d276683ffab78",
                 "shasum": ""
             },
             "require": {
@@ -2096,7 +2096,7 @@
                 "ocramius/package-versions": "^1.2",
                 "php": "^7.2.9",
                 "pimple/pimple": "^3.2",
-                "sebastian/diff": "^3.0.2",
+                "sebastian/diff": "^3.0.2 || ^4.0",
                 "seld/jsonlint": "^1.7",
                 "symfony/console": "^3.4.29 || ^4.0 || ^5.0",
                 "symfony/filesystem": "^3.4.29 || ^4.0 || ^5.0",
@@ -2167,7 +2167,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2020-02-06T12:53:30+00:00"
+            "time": "2020-02-12T06:37:09+00:00"
         },
         {
             "name": "jangregor/phpstan-prophecy",
