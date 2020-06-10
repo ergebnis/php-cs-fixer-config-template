@@ -1,11 +1,11 @@
 # php-cs-fixer-config-template
 
-[![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Release](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Renew](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Release](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Renew](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 
-[![Code Coverage](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
+[![Code Coverage](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template/coverage.svg)](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
@@ -181,7 +181,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
    pull_request:
    push:
      branches:
-       - master
+       - main
      tags:
        - "**"
 

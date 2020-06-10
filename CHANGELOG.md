@@ -6,6 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1c2b8be...master`][1c2b8be...master].
+For a full diff see [`1c2b8be...main`][1c2b8be...main].
 
-[1c2b8be...master]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...master
+[1c2b8be...main]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...main
