@@ -17,7 +17,7 @@
 
 Run
 
-```shell
+```sh
 $ composer require --dev ergebnis/php-cs-fixer-config-template
 ```
 
