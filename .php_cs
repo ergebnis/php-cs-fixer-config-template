@@ -29,13 +29,13 @@ $license->save();
 $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Custom($license->header()));
 
 $config->getFinder()
-    ->ignoreDotFiles(false)
-    ->in(__DIR__)
     ->exclude([
         '.build/',
         '.github/',
         '.notes/',
     ])
+    ->ignoreDotFiles(false)
+    ->in(__DIR__)
     ->name('.php_cs');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
