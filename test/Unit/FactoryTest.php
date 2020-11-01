@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
 
 use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config\Test\Fixture;
+use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -23,36 +25,17 @@ use PHPUnit\Framework;
  */
 final class FactoryTest extends Framework\TestCase
 {
+    use Util\Helper;
+
     public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion(): void
     {
         $targetPhpVersion = \PHP_VERSION_ID + 1;
 
-        $ruleSet = new class($targetPhpVersion) implements Config\RuleSet {
-            /**
-             * @var int
-             */
-            private $phpVersion;
-
-            public function __construct(int $phpVersion)
-            {
-                $this->phpVersion = $phpVersion;
-            }
-
-            public function name(): string
-            {
-                return spl_object_hash($this);
-            }
-
-            public function rules(): array
-            {
-                return [];
-            }
-
-            public function targetPhpVersion(): int
-            {
-                return $this->phpVersion;
-            }
-        };
+        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+            self::faker()->word,
+            [],
+            $targetPhpVersion
+        );
 
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -65,14 +48,10 @@ final class FactoryTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerTargetPhpVersion
-     *
-     * @param int $targetPhpVersion
+     * @dataProvider provideTargetPhpVersion
      */
     public function testFromRuleSetCreatesConfig(int $targetPhpVersion): void
     {
-        $name = 'foobarbaz';
-
         $rules = [
             'foo' => true,
             'bar' => [
@@ -80,44 +59,11 @@ final class FactoryTest extends Framework\TestCase
             ],
         ];
 
-        $ruleSet = new class($name, $rules, $targetPhpVersion) implements Config\RuleSet {
-            /**
-             * @var string
-             */
-            private $name;
-
-            /**
-             * @var array
-             */
-            private $rules;
-
-            /**
-             * @var int
-             */
-            private $phpVersion;
-
-            public function __construct(string $name, array $rules, int $phpVersion)
-            {
-                $this->name = $name;
-                $this->rules = $rules;
-                $this->phpVersion = $phpVersion;
-            }
-
-            public function name(): string
-            {
-                return $this->name;
-            }
-
-            public function rules(): array
-            {
-                return $this->rules;
-            }
-
-            public function targetPhpVersion(): int
-            {
-                return $this->phpVersion;
-            }
-        };
+        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+            self::faker()->word,
+            $rules,
+            $targetPhpVersion
+        );
 
         $config = Config\Factory::fromRuleSet($ruleSet);
 
@@ -126,7 +72,10 @@ final class FactoryTest extends Framework\TestCase
         self::assertSame($rules, $config->getRules());
     }
 
-    public function providerTargetPhpVersion(): \Generator
+    /**
+     * @return \Generator<int, array{0: int}>
+     */
+    public function provideTargetPhpVersion(): \Generator
     {
         $values = [
             \PHP_VERSION_ID - 1,
@@ -142,8 +91,6 @@ final class FactoryTest extends Framework\TestCase
 
     public function testFromRuleSetCreatesConfigWithOverrideRules(): void
     {
-        $name = 'foobarbaz';
-
         $rules = [
             'foo' => true,
             'bar' => [
@@ -151,46 +98,11 @@ final class FactoryTest extends Framework\TestCase
             ],
         ];
 
-        $targetPhpVersion = PHP_VERSION_ID;
-
-        $ruleSet = new class($name, $rules, $targetPhpVersion) implements Config\RuleSet {
-            /**
-             * @var string
-             */
-            private $name;
-
-            /**
-             * @var array
-             */
-            private $rules;
-
-            /**
-             * @var int
-             */
-            private $phpVersion;
-
-            public function __construct(string $name, array $rules, int $phpVersion)
-            {
-                $this->name = $name;
-                $this->rules = $rules;
-                $this->phpVersion = $phpVersion;
-            }
-
-            public function name(): string
-            {
-                return $this->name;
-            }
-
-            public function rules(): array
-            {
-                return $this->rules;
-            }
-
-            public function targetPhpVersion(): int
-            {
-                return $this->phpVersion;
-            }
-        };
+        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+            self::faker()->word,
+            $rules,
+            \PHP_VERSION_ID
+        );
 
         $overrideRules = [
             'foo' => false,
