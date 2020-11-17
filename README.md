@@ -11,9 +11,9 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
-## Installation
+Provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
-:bulb: This is a great place for showing how to install the package, see below:
+## Installation
 
 Run
 
@@ -65,7 +65,7 @@ All configuration examples use the caching feature, and if you want to use it as
  use Ergebnis\PhpCsFixer\Config;
 
 +$header = <<<EOF
-+Copyright (c) 2019 Andreas Möller
++Copyright (c) 2020 Andreas Möller
 +
 +For the full copyright and license information, please view
 +the LICENSE file that was distributed with this source code.
@@ -89,7 +89,7 @@ file headers will be added to PHP files, for example:
 <?php
 
 /**
- * Copyright (c) 2019 Andreas Möller
+ * Copyright (c) 2020 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -127,7 +127,7 @@ If you like [`Makefile`](https://www.gnu.org/software/make/manual/make.html#Intr
 +.PHONY: coding-standards
 +coding-standards: vendor
 +	 mkdir -p .build/php-cs-fixer
-+    vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
++	 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 
  vendor: composer.json composer.lock
      composer validate
@@ -153,7 +153,7 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
      "php": "^7.2",
    },
    "require-dev": {
-     "ergebnis/php-cs-fixer-config": "~1.0.0"
+     "ergebnis/php-cs-fixer-config-template": "~1.0.0"
 +  },
 +  "scripts": {
 +    "coding-standards": [
@@ -178,14 +178,12 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 
 ```diff
  on:
-   pull_request:
+   pull_request: null
    push:
      branches:
        - main
-     tags:
-       - "**"
 
- name: "Continuous Integration"
+ name: "Integrate"
 
  jobs:
 +  coding-standards:
@@ -193,65 +191,43 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +
 +    runs-on: ubuntu-latest
 +
++    strategy:
++      matrix:
++        php-version:
++          - "7.2"
++
 +    steps:
 +      - name: "Checkout"
-+        uses: actions/checkout@v1.1.0
++        uses: "actions/checkout@v2"
 +
-+      - name: "Disable Xdebug"
-+        run: php7.2 --ini | grep xdebug | sed 's/,$//' | xargs sudo rm
++      - name: "Install PHP with extensions"
++        uses: "shivammathur/setup-php@v2"
++        with:
++          coverage: "none"
++          php-version: "${{ matrix.php-version }}"
 +
 +      - name: "Cache dependencies installed with composer"
-+        uses: actions/cache@v1.0.2
++        uses: "actions/cache@v2"
 +        with:
-+          path: ~/.composer/cache
-+          key: php7.2-composer-locked-${{ hashFiles('**/composer.lock') }}
-+          restore-keys: |
-+            php7.2-composer-locked-
++          path: "~/.composer/cache"
++          key: "php-${{ matrix.php-version }}-composer-${{ hashFiles('composer.lock') }}"
++          restore-keys: "php-${{ matrix.php-version }}-composer-"
 +
 +      - name: "Install locked dependencies with composer"
-+        run: php7.2 $(which composer) install --no-interaction --no-progress --no-suggest
++        run: "composer install --no-interaction --no-progress --no-suggest"
 +
 +      - name: "Create cache directory for friendsofphp/php-cs-fixer"
 +        run: mkdir -p .build/php-cs-fixer
 +
 +      - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-+        uses: actions/cache@v1.0.2
++        uses: "actions/cache@v2"
 +        with:
-+          path: ~/.build/php-cs-fixer
-+          key: php7.2-php-cs-fixer-${{ hashFiles('**/composer.lock') }}
-+          restore-keys: |
-+            php7.2-php-cs-fixer-
++          path: "~/.build/php-cs-fixer"
++          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.sha }}"
++          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 +
 +      - name: "Run friendsofphp/php-cs-fixer"
-+        run: php7.2 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose
-```
-
-### Travis
-
-If you like [Travis CI](https://travis-ci.com), add a `coding-standards` stage to your jobs:
-
-```diff
- language: php
-
- cache:
-   directories:
-     - $HOME/.composer/cache
-+    - .build/php-cs-fixer
-
- jobs:
-   include:
-+    - stage: "Coding Standards"
-+
-+      php: 7.2
-+
-+      install:
-+        - composer install --no-interaction --no-progress --no-suggest
-+
-+      before_script:
-+        - mkdir -p .build/php-cs-fixer
-+
-+      script:
-+        - vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose
++       run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
 ```
 
 ## Changelog
@@ -264,13 +240,17 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
+Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
 This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
+
+## Credits
+
+This project is inspired by [`ergebnis/php-cs-fixer-config`](https://github.com/ergebnis/php-cs-fixer-config).
 
 ## Curious what I am building?
 
