@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
-namespace Ergebnis\PhpCsFixer\Config\Test\Fixture\Config\RuleSet;
+namespace Ergebnis\PhpCsFixer\Config\Test\Double\Config\RuleSet;
 
 use Ergebnis\PhpCsFixer\Config;
 

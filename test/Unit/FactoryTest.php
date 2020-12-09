@@ -31,7 +31,7 @@ final class FactoryTest extends Framework\TestCase
     {
         $targetPhpVersion = \PHP_VERSION_ID + 1;
 
-        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+        $ruleSet = new Config\Test\Double\Config\RuleSet\DummyRuleSet(
             self::faker()->word,
             [],
             $targetPhpVersion
@@ -59,7 +59,7 @@ final class FactoryTest extends Framework\TestCase
             ],
         ];
 
-        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+        $ruleSet = new Config\Test\Double\Config\RuleSet\DummyRuleSet(
             self::faker()->word,
             $rules,
             $targetPhpVersion
@@ -98,7 +98,7 @@ final class FactoryTest extends Framework\TestCase
             ],
         ];
 
-        $ruleSet = new Fixture\Config\RuleSet\DummyRuleSet(
+        $ruleSet = new Config\Test\Double\Config\RuleSet\DummyRuleSet(
             self::faker()->word,
             $rules,
             \PHP_VERSION_ID
