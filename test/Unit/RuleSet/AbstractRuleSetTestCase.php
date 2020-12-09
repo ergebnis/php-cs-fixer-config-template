@@ -63,7 +63,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         ));
     }
 
-    final public function testRuleSetDoesDoNotConfigureRulesThatAreNotBuiltIn(): void
+    final public function testRuleSetDoesNotConfigureRulesThatAreNotBuiltIn(): void
     {
         $namesOfRulesThatAreConfiguredAndNotBuiltIn = \array_diff(
             self::namesOfRulesThatAreConfigured(),
