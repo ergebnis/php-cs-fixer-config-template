@@ -279,7 +279,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         $ruleSet = new RuleSet\RuleSet($rules);
 
-        /** @var array<string, Fixer\FixerInterface> $fixersThatAreConfigured */
+        /** @var array<string, bool> $fixersThatAreConfigured */
         $fixersThatAreConfigured = $ruleSet->getRules();
 
         \ksort($fixersThatAreConfigured);
