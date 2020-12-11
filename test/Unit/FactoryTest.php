@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
 
 use Ergebnis\PhpCsFixer\Config;
-use Ergebnis\PhpCsFixer\Config\Test\Fixture;
 use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
