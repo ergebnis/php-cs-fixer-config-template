@@ -19,7 +19,7 @@ namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
  * @covers \Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet
  * @covers \Ergebnis\PhpCsFixer\Config\RuleSet\Custom
  */
-final class CustomTest extends AbstractRuleSetTestCase
+final class CustomTest extends ExplicitRuleSetTestCase
 {
     protected $name = 'custom (PHP 7.2)';
 

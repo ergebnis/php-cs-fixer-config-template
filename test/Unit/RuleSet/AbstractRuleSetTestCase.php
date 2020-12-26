@@ -15,6 +15,7 @@ namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
 
 use Ergebnis\PhpCsFixer\Config;
 use PhpCsFixer\Fixer;
+use PhpCsFixer\FixerConfiguration;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet;
 use PHPUnit\Framework;
@@ -44,23 +45,8 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         $ruleSet = self::createRuleSet();
 
         self::assertSame($this->name, $ruleSet->name());
-        self::assertEquals($this->rules, $ruleSet->rules());
-        self::assertEquals($this->targetPhpVersion, $ruleSet->targetPhpVersion());
-    }
-
-    final public function testRuleSetDoesNotConfigureRuleSets(): void
-    {
-        $namesOfRulesThatAreConfigured = \array_keys(self::createRuleSet()->rules());
-
-        $namesOfRulesThatAreConfiguredAndReferenceRuleSets = \array_filter($namesOfRulesThatAreConfigured, static function (string $ruleName): bool {
-            return '@' === \mb_substr($ruleName, 0, 1);
-        });
-
-        self::assertEmpty($namesOfRulesThatAreConfiguredAndReferenceRuleSets, \sprintf(
-            "Failed asserting that rule set \"%s\" does not configure rule sets. Rule sets with names\n\n%s\n\nshould not be used.",
-            static::className(),
-            ' - ' . \implode("\n - ", $namesOfRulesThatAreConfiguredAndReferenceRuleSets)
-        ));
+        self::assertSame($this->rules, $ruleSet->rules());
+        self::assertSame($this->targetPhpVersion, $ruleSet->targetPhpVersion());
     }
 
     final public function testRuleSetDoesNotConfigureRulesThatAreNotBuiltIn(): void
@@ -91,44 +77,72 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         ));
     }
 
-    final public function testRuleSetConfiguresAllRulesThatAreNotDeprecated(): void
+    final public function testRuleSetDoesNotConfigureRulesUsingDeprecatedConfigurationOptions(): void
     {
-        $namesOfRulesThatAreNotDeprecatedAndNotConfigured = \array_diff(
-            self::namesOfRulesThatAreBuiltInAndNotDeprecated(),
-            self::namesOfRulesThatAreConfigured()
+        $rules = self::createRuleSet()->rules();
+
+        $namesOfRules = \array_keys($rules);
+
+        $fixersThatAreBuiltIn = self::fixersThatAreBuiltIn();
+
+        $rulesWithoutDeprecatedConfigurationOptions = \array_combine(
+            $namesOfRules,
+            \array_map(static function (string $nameOfRule, $ruleConfiguration) use ($fixersThatAreBuiltIn) {
+                if (!\is_array($ruleConfiguration)) {
+                    return $ruleConfiguration;
+                }
+
+                $fixer = $fixersThatAreBuiltIn[$nameOfRule];
+
+                if ($fixer instanceof Fixer\DeprecatedFixerInterface) {
+                    return $ruleConfiguration;
+                }
+
+                if (!$fixer instanceof Fixer\ConfigurationDefinitionFixerInterface) {
+                    return $ruleConfiguration;
+                }
+
+                $configurationOptions = $fixer->getConfigurationDefinition()->getOptions();
+
+                $deprecatedConfigurationOptions = \array_filter($configurationOptions, static function (FixerConfiguration\FixerOptionInterface $fixerOption): bool {
+                    return $fixerOption instanceof FixerConfiguration\DeprecatedFixerOptionInterface;
+                });
+
+                return \array_diff_key(
+                    $ruleConfiguration,
+                    \array_flip(\array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption): string {
+                        return $fixerOption->getName();
+                    }, $deprecatedConfigurationOptions))
+                );
+            }, $namesOfRules, $rules)
         );
 
-        self::assertEmpty($namesOfRulesThatAreNotDeprecatedAndNotConfigured, \sprintf(
-            "Failed asserting that rule set \"%s\" configures all non-deprecated fixers. Rules with the names\n\n%s\n\nare not configured.",
-            static::className(),
-            ' - ' . \implode("\n - ", $namesOfRulesThatAreNotDeprecatedAndNotConfigured)
-        ));
-    }
-
-    final public function testRulesAreSortedByNameInRuleSet(): void
-    {
-        $ruleNames = \array_keys(self::createRuleSet()->rules());
-
-        $sorted = $ruleNames;
-
-        \sort($sorted);
-
-        self::assertEquals($sorted, $ruleNames, \sprintf(
-            'Failed asserting that the rules are sorted by name in rule set "%s".',
+        self::assertSame($rulesWithoutDeprecatedConfigurationOptions, $rules, \sprintf(
+            'Failed asserting that rule set "%s" does not configure rules using deprecated configuration options.',
             static::className()
         ));
     }
 
-    final public function testRulesAreSortedByNameInRuleSetTest(): void
+    final public function testRulesAndConfigurationOptionsAreSortedInRuleSet(): void
     {
-        $ruleNames = \array_keys($this->rules);
+        $rules = self::createRuleSet()->rules();
 
-        $sorted = $ruleNames;
+        $sorted = self::sort($rules);
 
-        \sort($sorted);
+        self::assertSame($sorted, $rules, \sprintf(
+            'Failed asserting that rules and configuration options are sorted by name in rule set "%s".',
+            static::className()
+        ));
+    }
 
-        self::assertEquals($sorted, $ruleNames, \sprintf(
-            'Failed asserting that the rules are sorted by name in rule set test "%s".',
+    final public function testRulesAndConfigurationOptionsAreSortedInRuleSetTest(): void
+    {
+        $rules = $this->rules;
+
+        $sorted = self::sort($rules);
+
+        self::assertSame($sorted, $rules, \sprintf(
+            'Failed asserting that rules and configuration options are sorted by name in rule set test "%s".',
             static::class
         ));
     }
@@ -242,7 +256,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @return array<string, Fixer\FixerInterface>
      */
-    private static function fixersThatAreBuiltIn(): array
+    final protected static function fixersThatAreBuiltIn(): array
     {
         $fixerFactory = FixerFactory::create();
 
@@ -263,10 +277,36 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         return $fixersThatAreBuiltIn;
     }
 
+    final protected static function sort(array $data): array
+    {
+        $keys = \array_keys($data);
+
+        $keysThatAreNotStrings = \array_filter($keys, static function ($key): bool {
+            return !\is_string($key);
+        });
+
+        if ([] !== $keysThatAreNotStrings) {
+            return $data;
+        }
+
+        \ksort($data);
+
+        return \array_combine(
+            \array_keys($data),
+            \array_map(static function ($item) {
+                if (!\is_array($item)) {
+                    return $item;
+                }
+
+                return self::sort($item);
+            }, $data)
+        );
+    }
+
     /**
      * @return array<int, string>
      */
-    private static function namesOfRulesThatAreConfigured(): array
+    final protected static function namesOfRulesThatAreConfigured(): array
     {
         /**
          * RuleSet\RuleSet::resolveSet() removes disabled fixers, to let's just enable them to make sure they are not removed.
@@ -302,16 +342,6 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         return \array_keys(\array_filter(self::fixersThatAreBuiltIn(), static function (Fixer\FixerInterface $fixer): bool {
             return $fixer instanceof Fixer\DeprecatedFixerInterface;
-        }));
-    }
-
-    /**
-     * @return array<int, string>
-     */
-    private static function namesOfRulesThatAreBuiltInAndNotDeprecated(): array
-    {
-        return \array_keys(\array_filter(self::fixersThatAreBuiltIn(), static function (Fixer\FixerInterface $fixer): bool {
-            return !$fixer instanceof Fixer\DeprecatedFixerInterface;
         }));
     }
 }
