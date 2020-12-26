@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
-final class Custom extends AbstractRuleSet
+final class Custom extends AbstractRuleSet implements ExplicitRuleSet
 {
     protected $name = 'custom (PHP 7.2)';
 
