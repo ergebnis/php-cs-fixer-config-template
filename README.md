@@ -1,9 +1,9 @@
 # php-cs-fixer-config-template
 
-[![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Release](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Renew](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Release](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Release/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Renew](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Renew/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/php-cs-fixer-config-template)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template/coverage.svg)](https://shepherd.dev/github/ergebnis/php-cs-fixer-config-template)
@@ -150,7 +150,7 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
  {
    "name": "foo/bar",
    "require": {
-     "php": "^7.2",
+     "php": "^7.3",
    },
    "require-dev": {
      "ergebnis/php-cs-fixer-config-template": "~1.0.0"
@@ -194,7 +194,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +    strategy:
 +      matrix:
 +        php-version:
-+          - "7.2"
++          - "7.3"
 +
 +    steps:
 +      - name: "Checkout"
