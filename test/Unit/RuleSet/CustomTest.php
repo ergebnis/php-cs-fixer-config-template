@@ -21,7 +21,7 @@ namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
  */
 final class CustomTest extends ExplicitRuleSetTestCase
 {
-    protected $name = 'custom (PHP 7.2)';
+    protected $name = 'custom (PHP 7.3)';
 
     protected $rules = [
         'align_multiline_comment' => false,
@@ -254,5 +254,5 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'yoda_style' => false,
     ];
 
-    protected $targetPhpVersion = 70200;
+    protected $targetPhpVersion = 70300;
 }
