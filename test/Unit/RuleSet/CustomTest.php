@@ -244,7 +244,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'ternary_operator_spaces' => false,
         'ternary_to_elvis_operator' => false,
         'ternary_to_null_coalescing' => false,
-        'trailing_comma_in_multiline_array' => false,
+        'trailing_comma_in_multiline' => false,
         'trim_array_spaces' => false,
         'unary_operator_spaces' => false,
         'use_arrow_functions' => false,
