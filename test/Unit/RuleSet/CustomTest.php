@@ -199,6 +199,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'phpdoc_tag_type' => false,
         'phpdoc_to_comment' => false,
         'phpdoc_to_param_type' => false,
+        'phpdoc_to_property_type' => false,
         'phpdoc_to_return_type' => false,
         'phpdoc_trim' => false,
         'phpdoc_trim_consecutive_blank_line_separation' => false,
