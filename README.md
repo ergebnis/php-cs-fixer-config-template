@@ -158,7 +158,7 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
 +  "scripts": {
 +    "coding-standards": [
 +      "mkdir -p .build/php-cs-fixer",
-+      "php-cs-fixer fix --diff --diff-format=udiff --verbose"
++      "php-cs-fixer fix --diff --verbose"
 +    ]
    }
  }
@@ -227,7 +227,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 +
 +      - name: "Run friendsofphp/php-cs-fixer"
-+       run: "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --diff-format=udiff --dry-run --verbose"
++       run: "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --dry-run --verbose"
 ```
 
 ## Changelog
