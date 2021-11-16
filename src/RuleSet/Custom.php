@@ -31,7 +31,6 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'cast_spaces' => false,
         'class_attributes_separation' => false,
         'class_definition' => false,
-        'class_keyword_remove' => false,
         'clean_namespace' => false,
         'combine_consecutive_issets' => false,
         'combine_consecutive_unsets' => false,
