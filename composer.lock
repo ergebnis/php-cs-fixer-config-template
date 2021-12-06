@@ -2794,6 +2794,10 @@
             "keywords": [
                 "license"
             ],
+            "support": {
+                "issues": "https://github.com/ergebnis/license/issues",
+                "source": "https://github.com/ergebnis/license"
+            },
             "funding": [
                 {
                     "url": "https://github.com/localheinz",
@@ -2867,6 +2871,10 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
+            "support": {
+                "issues": "https://github.com/ergebnis/phpstan-rules/issues",
+                "source": "https://github.com/ergebnis/phpstan-rules"
+            },
             "funding": [
                 {
                     "url": "https://github.com/localheinz",

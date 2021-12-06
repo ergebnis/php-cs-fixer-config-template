@@ -1,15 +1,19 @@
 {
   "name": "ergebnis/php-cs-fixer-config-template",
-  "type": "library",
   "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
-  "homepage": "https://github.com/ergebnis/php-cs-fixer-config-template",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "homepage": "https://github.com/ergebnis/php-cs-fixer-config-template",
+  "support": {
+    "issues": "https://github.com/ergebnis/php-cs-fixer-config-template/issues",
+    "source": "https://github.com/ergebnis/php-cs-fixer-config-template"
+  },
   "require": {
     "php": "^7.3 || ^8.0",
     "friendsofphp/php-cs-fixer": "~3.3.2"
@@ -28,6 +32,16 @@
     "psalm/plugin-phpunit": "~0.16.1",
     "vimeo/psalm": "^4.14.0"
   },
+  "autoload": {
+    "psr-4": {
+      "Ergebnis\\PhpCsFixer\\Config\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ergebnis\\PhpCsFixer\\Config\\Test\\": "test"
+    }
+  },
   "config": {
     "platform": {
       "php": "7.3.24"
@@ -40,19 +54,5 @@
       "indent-size": 2,
       "indent-style": "space"
     }
-  },
-  "autoload": {
-    "psr-4": {
-      "Ergebnis\\PhpCsFixer\\Config\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Ergebnis\\PhpCsFixer\\Config\\Test\\": "test"
-    }
-  },
-  "support": {
-    "issues": "https://github.com/ergebnis/php-cs-fixer-config-template/issues",
-    "source": "https://github.com/ergebnis/php-cs-fixer-config-template"
   }
 }
