@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
 
 use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config\Test;
 use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
@@ -24,7 +25,7 @@ use PHPUnit\Framework;
  */
 final class FactoryTest extends Framework\TestCase
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion(): void
     {
