@@ -15,7 +15,7 @@ namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
 final class Custom extends AbstractRuleSet implements ExplicitRuleSet
 {
-    protected $name = 'custom (PHP 7.3)';
+    protected $name = 'custom (PHP 7.4)';
 
     protected $rules = [
         'align_multiline_comment' => false,
@@ -259,5 +259,5 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'yoda_style' => false,
     ];
 
-    protected $targetPhpVersion = 70300;
+    protected $targetPhpVersion = 70400;
 }
