@@ -16,6 +16,11 @@ parameters:
 			path: src/RuleSet/AbstractRuleSet.php
 
 		-
+			message: "#^Method Ergebnis\\\\PhpCsFixer\\\\Config\\\\Test\\\\Unit\\\\FactoryTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/FactoryTest.php
+
+		-
 			message: "#^Method Ergebnis\\\\PhpCsFixer\\\\Config\\\\Test\\\\Unit\\\\RuleSet\\\\AbstractRuleSetTestCase\\:\\:createRuleSet\\(\\) has parameter \\$header with a nullable type declaration\\.$#"
 			count: 1
 			path: test/Unit/RuleSet/AbstractRuleSetTestCase.php
