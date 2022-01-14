@@ -78,6 +78,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'function_typehint_space' => false,
         'general_phpdoc_annotation_remove' => false,
         'general_phpdoc_tag_rename' => false,
+        'get_class_to_class_keyword' => false,
         'global_namespace_import' => false,
         'group_import' => false,
         'header_comment' => false,
