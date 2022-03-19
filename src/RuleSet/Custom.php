@@ -42,6 +42,7 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'concat_space' => false,
         'constant_case' => false,
         'control_structure_continuation_position' => false,
+        'date_time_create_from_format_call' => false,
         'date_time_immutable' => false,
         'declare_equal_normalize' => false,
         'declare_parentheses' => false,
