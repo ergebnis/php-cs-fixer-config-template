@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config\RuleSet;
 use PhpCsFixer\Fixer;
 use PhpCsFixer\FixerConfiguration;
 use PhpCsFixer\FixerFactory;
@@ -61,7 +61,10 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                     return true;
                 }
 
-                return \array_key_exists($nameOfRule, $fixersThatAreBuiltIn);
+                return \array_key_exists(
+                    $nameOfRule,
+                    $fixersThatAreBuiltIn
+                );
             },
             \ARRAY_FILTER_USE_KEY
         );
@@ -259,7 +262,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @throws \RuntimeException
      */
-    final protected static function createRuleSet(?string $header = null): Config\RuleSet
+    final protected static function createRuleSet(?string $header = null): RuleSet
     {
         $className = self::className();
 
@@ -267,11 +270,11 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         $ruleSet = $reflection->newInstance($header);
 
-        if (!$ruleSet instanceof Config\RuleSet) {
+        if (!$ruleSet instanceof RuleSet) {
             throw new \RuntimeException(\sprintf(
                 'Class %s" does not implement interface "%s".',
                 $className,
-                Config\RuleSet::class
+                RuleSet::class
             ));
         }
 

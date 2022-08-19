@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config\RuleSet;
 use PhpCsFixer\Fixer;
 use PhpCsFixer\FixerConfiguration;
 
@@ -26,7 +26,7 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
     {
         $ruleSet = self::createRuleSet();
 
-        self::assertInstanceOf(Config\RuleSet\ExplicitRuleSet::class, $ruleSet);
+        self::assertInstanceOf(RuleSet\ExplicitRuleSet::class, $ruleSet);
     }
 
     final public function testRuleSetDoesNotConfigureRuleSets(): void
@@ -36,14 +36,14 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
         $rulesWithoutRulesForRuleSets = \array_filter(
             $rules,
             static function (string $nameOfRule): bool {
-                return '@' !== \mb_substr($nameOfRule, 0, 1);
+                return 0 !== \mb_strpos($nameOfRule, '@');
             },
-            \ARRAY_FILTER_USE_KEY
+            \ARRAY_FILTER_USE_KEY,
         );
 
         self::assertEquals($rulesWithoutRulesForRuleSets, $rules, \sprintf(
             'Failed asserting that rule set "%s" does not configure rules for rule sets.',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -61,7 +61,7 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
                 0,
                 \count($fixersThatAreBuiltInAndNotDeprecated),
                 false
-            )
+            ),
         );
 
         $rulesWithRulesThatAreNotDeprecated = \array_merge(
@@ -86,8 +86,8 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
         $rulesWithAllNonDeprecatedConfigurationOptions = \array_combine(
             $namesOfRules,
             \array_map(static function (string $nameOfRule, $ruleConfiguration) use ($fixersThatAreBuiltIn) {
-                if (!\is_array($ruleConfiguration)) {
-                    return $ruleConfiguration;
+                if (false === $ruleConfiguration) {
+                    return false;
                 }
 
                 $fixer = $fixersThatAreBuiltIn[$nameOfRule];
@@ -106,15 +106,25 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
                     return !$fixerOption instanceof FixerConfiguration\DeprecatedFixerOptionInterface;
                 });
 
+                $ruleConfigurationWithAllNonDeprecatedConfigurationOptionsAndDefaultValues = \array_combine(
+                    \array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption): string {
+                        return $fixerOption->getName();
+                    }, $nonDeprecatedConfigurationOptions),
+                    \array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption) {
+                        if (!$fixerOption->hasDefault()) {
+                            return null;
+                        }
+
+                        return $fixerOption->getDefault();
+                    }, $nonDeprecatedConfigurationOptions)
+                );
+
+                if (!\is_array($ruleConfiguration)) {
+                    return $ruleConfigurationWithAllNonDeprecatedConfigurationOptionsAndDefaultValues;
+                }
+
                 $diff = \array_diff_key(
-                    \array_combine(
-                        \array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption): string {
-                            return $fixerOption->getName();
-                        }, $nonDeprecatedConfigurationOptions),
-                        \array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption) {
-                            return $fixerOption->getDefault();
-                        }, $nonDeprecatedConfigurationOptions)
-                    ),
+                    $ruleConfigurationWithAllNonDeprecatedConfigurationOptionsAndDefaultValues,
                     $ruleConfiguration
                 );
 

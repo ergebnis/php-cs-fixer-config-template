@@ -35,5 +35,4 @@ trait Helper
 
         return $fakers[$locale];
     }
-
 }
