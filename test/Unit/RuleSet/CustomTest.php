@@ -135,6 +135,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'no_leading_namespace_whitespace' => false,
         'no_mixed_echo_print' => false,
         'no_multiline_whitespace_around_double_arrow' => false,
+        'no_multiple_statements_per_line' => false,
         'no_null_property_initialization' => false,
         'no_php4_constructor' => false,
         'no_short_bool_cast' => false,
