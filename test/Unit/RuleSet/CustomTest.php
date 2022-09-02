@@ -147,6 +147,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'no_superfluous_elseif' => false,
         'no_superfluous_phpdoc_tags' => false,
         'no_trailing_comma_in_list_call' => false,
+        'no_trailing_comma_in_singleline' => false,
         'no_trailing_comma_in_singleline_array' => false,
         'no_trailing_comma_in_singleline_function_call' => false,
         'no_trailing_whitespace' => false,
