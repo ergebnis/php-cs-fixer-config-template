@@ -24,20 +24,11 @@ use PHPUnit\Framework;
  */
 abstract class AbstractRuleSetTestCase extends Framework\TestCase
 {
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
-    /**
-     * @var array
-     */
-    protected $rules;
+    protected array $rules;
 
-    /**
-     * @var int
-     */
-    protected $targetPhpVersion;
+    protected int $targetPhpVersion;
 
     final public function testDefaults(): void
     {

@@ -20,20 +20,14 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
  */
 abstract class AbstractRuleSet implements RuleSet
 {
-    /**
-     * @var string
-     */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * @var array<string, array<string, mixed>|bool>
      */
-    protected $rules = [];
+    protected array $rules = [];
 
-    /**
-     * @var int
-     */
-    protected $targetPhpVersion = 0;
+    protected int $targetPhpVersion = 0;
 
     final public function __construct(?string $header = null)
     {

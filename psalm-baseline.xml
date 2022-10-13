@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+  <file src="src/RuleSet/Custom.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$rules</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
   <file src="test/Unit/RuleSet/AbstractRuleSetTestCase.php">
     <InternalClass occurrences="1">
       <code>new FixerFactory()</code>
@@ -9,12 +14,5 @@
       <code>new FixerFactory()</code>
       <code>registerBuiltInFixers</code>
     </InternalMethod>
-  </file>
-  <file src="test/Unit/RuleSet/CustomTest.php">
-    <NonInvariantPropertyType occurrences="3">
-      <code>$name</code>
-      <code>$rules</code>
-      <code>$targetPhpVersion</code>
-    </NonInvariantPropertyType>
   </file>
 </files>
