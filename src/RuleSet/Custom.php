@@ -152,6 +152,7 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'no_unset_cast' => false,
         'no_unset_on_property' => false,
         'no_unused_imports' => false,
+        'no_useless_concat_operator' => false,
         'no_useless_else' => false,
         'no_useless_nullsafe_operator' => false,
         'no_useless_return' => false,
