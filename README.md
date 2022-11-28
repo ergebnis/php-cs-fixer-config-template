@@ -65,7 +65,7 @@ All configuration examples use the caching feature, and if you want to use it as
  use Ergebnis\PhpCsFixer\Config;
 
 +$header = <<<EOF
-+Copyright (c) 2020 Andreas Möller
++Copyright (c) 2022 Andreas Möller
 +
 +For the full copyright and license information, please view
 +the LICENSE file that was distributed with this source code.
@@ -89,7 +89,7 @@ file headers will be added to PHP files, for example:
 <?php
 
 /**
- * Copyright (c) 2020 Andreas Möller
+ * Copyright (c) 2022 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -194,13 +194,13 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +    strategy:
 +      matrix:
 +        php-version:
-+          - "7.3"
++          - "8.1"
 +
 +    steps:
 +      - name: "Checkout"
 +        uses: "actions/checkout@v2"
 +
-+      - name: "Install PHP with extensions"
++      - name: "Set up PHP"
 +        uses: "shivammathur/setup-php@v2"
 +        with:
 +          coverage: "none"
@@ -214,7 +214,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +          restore-keys: "php-${{ matrix.php-version }}-composer-"
 +
 +      - name: "Install locked dependencies with composer"
-+        run: "composer install --no-interaction --no-progress --no-suggest"
++        run: "composer install --ansi --no-interaction --no-progress --no-suggest"
 +
 +      - name: "Create cache directory for friendsofphp/php-cs-fixer"
 +        run: mkdir -p .build/php-cs-fixer
@@ -227,7 +227,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 +
 +      - name: "Run friendsofphp/php-cs-fixer"
-+       run: "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --dry-run --verbose"
++       run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --dry-run --verbose"
 ```
 
 ## Changelog
