@@ -27,7 +27,7 @@ composer require --dev ergebnis/php-cs-fixer-config-template
 
 Pick one of the rule sets:
 
-* [`Ergebnis\PhpCsFixer\RuleSet\Custom`](src/RuleSet/Custom.php)
+- [`Ergebnis\PhpCsFixer\RuleSet\Custom`](src/RuleSet/Custom.php)
 
 Create a configuration file `.php-cs-fixer.php` in the root of your project:
 
