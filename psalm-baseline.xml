@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+<files psalm-version="5.4.0@62db5d4f6a7ae0a20f7cc5a4952d730272fc0863">
   <file src="src/RuleSet/Custom.php">
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$rules</code>
     </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/EndToEnd/RuleSet/AbstractRuleSetTestCase.php">
+    <InternalClass occurrences="1">
+      <code>Command\FixCommandExitStatusCalculator::EXIT_STATUS_FLAG_HAS_INVALID_CONFIG</code>
+    </InternalClass>
   </file>
   <file src="test/Unit/RuleSet/AbstractRuleSetTestCase.php">
     <InternalClass occurrences="1">

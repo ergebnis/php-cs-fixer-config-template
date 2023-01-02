@@ -1,4 +1,4 @@
-# php-cs-fixer-config-template
+# php-cs-fixer-config
 
 [![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 [![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
@@ -39,7 +39,7 @@ use Ergebnis\PhpCsFixer\Config;
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
 
 $config->getFinder()->in(__DIR__);
-$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/php-cs-fixer.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
 return $config;
 ```
@@ -77,7 +77,7 @@ All configuration examples use the caching feature, and if you want to use it as
 +$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom($header));
 
  $config->getFinder()->in(__DIR__);
- $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/php-cs-fixer.cache');
+ $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
  return $config;
 ```
@@ -114,7 +114,7 @@ file headers will be added to PHP files, for example:
 +]);
 
  $config->getFinder()->in(__DIR__);
- $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/php-cs-fixer.cache');
+ $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
  return $config;
 ```
@@ -127,7 +127,7 @@ If you like [`Makefile`](https://www.gnu.org/software/make/manual/make.html#Intr
 +.PHONY: coding-standards
 +coding-standards: vendor
 +	 mkdir -p .build/php-cs-fixer
-+	 vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
++    vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
 
  vendor: composer.json composer.lock
      composer validate
@@ -136,8 +136,8 @@ If you like [`Makefile`](https://www.gnu.org/software/make/manual/make.html#Intr
 
 Run
 
-```
-$ make coding-standards
+```sh
+make coding-standards
 ```
 
 to automatically fix coding standard violations.
@@ -166,8 +166,8 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
 
 Run
 
-```
-$ composer coding-standards
+```sh
+composer coding-standards
 ```
 
 to automatically fix coding standard violations.
@@ -194,7 +194,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +    strategy:
 +      matrix:
 +        php-version:
-+          - "8.1"
++          - "8.0"
 +
 +    steps:
 +      - name: "Checkout"
@@ -223,11 +223,13 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +        uses: "actions/cache@v2"
 +        with:
 +          path: "~/.build/php-cs-fixer"
-+          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.sha }}"
-+          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
++          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
++          restore-keys: |
++            php-${{ matrix.php-version }}-php-cs-fixer-main
++            php-${{ matrix.php-version }}-php-cs-fixer-
 +
 +      - name: "Run friendsofphp/php-cs-fixer"
-+       run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --dry-run --verbose"
++        run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --dry-run --verbose"
 ```
 
 ## Changelog
