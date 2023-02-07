@@ -1,7 +1,7 @@
-# php-cs-fixer-config
+# php-cs-fixer-config-template
 
 [![Integrate](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Integrate/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
-[![Prune](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Prune/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
+[![Merge](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Merge/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 [![Release](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Release/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 [![Renew](https://github.com/ergebnis/php-cs-fixer-config-template/workflows/Renew/badge.svg)](https://github.com/ergebnis/php-cs-fixer-config-template/actions)
 
@@ -10,8 +10,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
-
-Provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
+[![Monthly Downloads](http://poser.pugx.org/ergebnis/php-cs-fixer-config-template/d/monthly)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
 ## Installation
 
@@ -256,4 +255,4 @@ This project is inspired by [`ergebnis/php-cs-fixer-config`](https://github.com/
 
 ## Curious what I am up to?
 
-Follow me on [Twitter](https://twitter.com/localheinz)!
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!
