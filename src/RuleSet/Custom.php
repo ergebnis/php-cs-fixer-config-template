@@ -172,6 +172,7 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'ordered_interfaces' => false,
         'ordered_traits' => false,
         'php_unit_construct' => false,
+        'php_unit_data_provider_static' => false,
         'php_unit_dedicate_assert' => false,
         'php_unit_dedicate_assert_internal_type' => false,
         'php_unit_expectation' => false,
