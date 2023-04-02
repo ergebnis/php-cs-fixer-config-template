@@ -248,6 +248,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'single_line_comment_style' => false,
         'single_line_throw' => false,
         'single_quote' => false,
+        'single_space_around_construct' => false,
         'single_trait_insert_per_statement' => false,
         'space_after_semicolon' => false,
         'standardize_increment' => false,
