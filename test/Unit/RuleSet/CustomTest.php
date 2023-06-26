@@ -13,12 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet
- * @covers \Ergebnis\PhpCsFixer\Config\RuleSet\Custom
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\PhpCsFixer\Config\RuleSet\Custom::class)]
 final class CustomTest extends ExplicitRuleSetTestCase
 {
     protected string $name = 'custom (PHP 7.4)';

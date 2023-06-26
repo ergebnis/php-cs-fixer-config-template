@@ -17,11 +17,7 @@ use Ergebnis\PhpCsFixer\Config\Factory;
 use Ergebnis\PhpCsFixer\Config\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PhpCsFixer\Config\Factory
- */
+#[Framework\Attributes\CoversClass(Factory::class)]
 final class FactoryTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -46,9 +42,7 @@ final class FactoryTest extends Framework\TestCase
         Factory::fromRuleSet($ruleSet);
     }
 
-    /**
-     * @dataProvider provideTargetPhpVersion
-     */
+    #[Framework\Attributes\DataProvider('provideTargetPhpVersion')]
     public function testFromRuleSetCreatesConfig(int $targetPhpVersion): void
     {
         $rules = [
@@ -61,7 +55,7 @@ final class FactoryTest extends Framework\TestCase
         $ruleSet = new Test\Double\Config\RuleSet\DummyRuleSet(
             self::faker()->word(),
             $rules,
-            $targetPhpVersion
+            $targetPhpVersion,
         );
 
         $config = Factory::fromRuleSet($ruleSet);
@@ -100,7 +94,7 @@ final class FactoryTest extends Framework\TestCase
         $ruleSet = new Test\Double\Config\RuleSet\DummyRuleSet(
             self::faker()->word(),
             $rules,
-            \PHP_VERSION_ID
+            \PHP_VERSION_ID,
         );
 
         $overrideRules = [
@@ -109,7 +103,7 @@ final class FactoryTest extends Framework\TestCase
 
         $config = Factory::fromRuleSet(
             $ruleSet,
-            $overrideRules
+            $overrideRules,
         );
 
         self::assertTrue($config->getUsingCache());

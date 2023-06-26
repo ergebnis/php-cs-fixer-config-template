@@ -76,11 +76,13 @@ repository:
   description: ":octocat: + :notebook: Provides a GitHub template repository for a configuration factory and a custom rule set for friendsofphp/php-cs-fixer."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
+  has_discussions: false
   has_downloads: true
   has_issues: true
   has_pages: false
   has_projects: false
   has_wiki: false
+  is_template: true
   name: "php-cs-fixer-config-template"
   private: false
 
