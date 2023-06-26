@@ -127,7 +127,7 @@ If you like [`Makefile`](https://www.gnu.org/software/make/manual/make.html#Intr
 ```diff
 +.PHONY: coding-standards
 +coding-standards: vendor
-+	 mkdir -p .build/php-cs-fixer
++    mkdir -p .build/php-cs-fixer
 +    vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
 
  vendor: composer.json composer.lock
@@ -151,7 +151,7 @@ If you like [`composer` scripts](https://getcomposer.org/doc/articles/scripts.md
  {
    "name": "foo/bar",
    "require": {
-     "php": "^7.3",
+     "php": "^8.1",
    },
    "require-dev": {
      "ergebnis/php-cs-fixer-config-template": "~1.0.0"
@@ -195,7 +195,7 @@ If you like [GitHub Actions](https://github.com/features/actions), add a `coding
 +    strategy:
 +      matrix:
 +        php-version:
-+          - "8.0"
++          - "8.1"
 +
 +    steps:
 +      - name: "Checkout"
@@ -244,6 +244,10 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 ## Code of Conduct
 
 Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+
+## Security Policy
+
+Please have a look at [`SECURITY.md`](.github/SECURITY.md).
 
 ## License
 

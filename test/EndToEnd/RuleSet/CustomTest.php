@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\Test\EndToEnd\RuleSet;
 
-/**
- * @internal
- */
 final class CustomTest extends AbstractRuleSetTestCase
 {
 }

@@ -15,9 +15,6 @@ namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
 use Ergebnis\PhpCsFixer\Config\RuleSet;
 
-/**
- * @internal
- */
 abstract class AbstractRuleSet implements RuleSet
 {
     protected string $name = '';
@@ -26,7 +23,6 @@ abstract class AbstractRuleSet implements RuleSet
      * @var array<string, array<string, mixed>|bool>
      */
     protected array $rules = [];
-
     protected int $targetPhpVersion = 0;
 
     final public function __construct(?string $header = null)

@@ -17,9 +17,6 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
 use PhpCsFixer\Fixer;
 use PhpCsFixer\FixerConfiguration;
 
-/**
- * @internal
- */
 abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
 {
     final public function testIsExplicitRuleSet(): void
@@ -60,18 +57,18 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
             \array_fill(
                 0,
                 \count($fixersThatAreBuiltInAndNotDeprecated),
-                false
+                false,
             ),
         );
 
         $rulesWithRulesThatAreNotDeprecated = \array_merge(
             $rulesThatAreNotDeprecated,
-            $rules
+            $rules,
         );
 
         self::assertEquals($rulesWithRulesThatAreNotDeprecated, $rules, \sprintf(
             'Failed asserting that rule set "%s" configures all non-deprecated fixers.',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -116,7 +113,7 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
                         }
 
                         return $fixerOption->getDefault();
-                    }, $nonDeprecatedConfigurationOptions)
+                    }, $nonDeprecatedConfigurationOptions),
                 );
 
                 if (!\is_array($ruleConfiguration)) {
@@ -125,7 +122,7 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
 
                 $diff = \array_diff_key(
                     $ruleConfigurationWithAllNonDeprecatedConfigurationOptionsAndDefaultValues,
-                    $ruleConfiguration
+                    $ruleConfiguration,
                 );
 
                 if ([] === $diff) {
@@ -134,14 +131,14 @@ abstract class ExplicitRuleSetTestCase extends AbstractRuleSetTestCase
 
                 return \array_merge(
                     $ruleConfiguration,
-                    $diff
+                    $diff,
                 );
-            }, $namesOfRules, $rules)
+            }, $namesOfRules, $rules),
         );
 
         self::assertEquals($rulesWithAllNonDeprecatedConfigurationOptions, $rules, \sprintf(
             'Failed asserting that rule set "%s" configures configurable rules using all non-deprecated configuration options.',
-            static::className()
+            static::className(),
         ));
     }
 }

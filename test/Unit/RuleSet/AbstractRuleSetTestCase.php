@@ -19,15 +19,10 @@ use PhpCsFixer\FixerConfiguration;
 use PhpCsFixer\FixerFactory;
 use PHPUnit\Framework;
 
-/**
- * @internal
- */
 abstract class AbstractRuleSetTestCase extends Framework\TestCase
 {
     protected string $name;
-
     protected array $rules;
-
     protected int $targetPhpVersion;
 
     final public function testDefaults(): void
@@ -54,15 +49,15 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
                 return \array_key_exists(
                     $nameOfRule,
-                    $fixersThatAreBuiltIn
+                    $fixersThatAreBuiltIn,
                 );
             },
-            \ARRAY_FILTER_USE_KEY
+            \ARRAY_FILTER_USE_KEY,
         );
 
         self::assertEquals($rulesWithoutRulesThatAreNotBuiltIn, $rules, \sprintf(
             'Failed asserting that rule set "%s" does not configure rules that are not built-in.',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -83,12 +78,12 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
                 return !$fixer instanceof Fixer\DeprecatedFixerInterface;
             },
-            \ARRAY_FILTER_USE_KEY
+            \ARRAY_FILTER_USE_KEY,
         );
 
         self::assertEquals($rulesWithoutRulesThatAreDeprecated, $rules, \sprintf(
             'Failed asserting that rule set "%s" does not configure rules that are deprecated.',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -127,7 +122,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                     $ruleConfiguration,
                     \array_flip(\array_map(static function (FixerConfiguration\FixerOptionInterface $fixerOption): string {
                         return $fixerOption->getName();
-                    }, $deprecatedConfigurationOptions))
+                    }, $deprecatedConfigurationOptions)),
                 );
 
                 if ([] === $ruleConfigurationWithoutDeprecatedConfigurationOptions) {
@@ -135,12 +130,12 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                 }
 
                 return $ruleConfigurationWithoutDeprecatedConfigurationOptions;
-            }, $namesOfRules, $rules)
+            }, $namesOfRules, $rules),
         );
 
         self::assertEquals($rulesWithoutDeprecatedConfigurationOptions, $rules, \sprintf(
             'Failed asserting that rule set "%s" does not configure rules using deprecated configuration options.',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -152,7 +147,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         self::assertSame($sorted, $rules, \sprintf(
             'Failed asserting that rules and configuration options are sorted by name in rule set "%s".',
-            static::className()
+            static::className(),
         ));
     }
 
@@ -164,7 +159,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         self::assertSame($sorted, $rules, \sprintf(
             'Failed asserting that rules and configuration options are sorted by name in rule set test "%s".',
-            static::class
+            static::class,
         ));
     }
 
@@ -176,9 +171,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         self::assertFalse($rules['header_comment']);
     }
 
-    /**
-     * @dataProvider provideValidHeader
-     */
+    #[Framework\Attributes\DataProvider('provideValidHeader')]
     final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided(string $header): void
     {
         $rules = self::createRuleSet($header)->rules();
@@ -228,14 +221,14 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             \str_replace(
                 '\Test\Unit',
                 '',
-                static::class
-            )
+                static::class,
+            ),
         );
 
         if (!\is_string($className)) {
             throw new \RuntimeException(\sprintf(
                 'Failed resolving class name from test class name "%s".',
-                static::class
+                static::class,
             ));
         }
 
@@ -243,7 +236,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             throw new \RuntimeException(\sprintf(
                 'Class name "%s" resolved from test class name "%s" does not reference a class that exists.',
                 $className,
-                static::class
+                static::class,
             ));
         }
 
@@ -265,7 +258,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             throw new \RuntimeException(\sprintf(
                 'Class %s" does not implement interface "%s".',
                 $className,
-                RuleSet::class
+                RuleSet::class,
             ));
         }
 
@@ -287,7 +280,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             \array_map(static function (Fixer\FixerInterface $fixer): string {
                 return $fixer->getName();
             }, $fixers),
-            $fixers
+            $fixers,
         );
 
         \ksort($fixersThatAreBuiltIn);
@@ -317,7 +310,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                 }
 
                 return self::sort($item);
-            }, $data)
+            }, $data),
         );
     }
 }
