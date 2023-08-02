@@ -173,6 +173,7 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'ordered_types' => false,
         'php_unit_construct' => false,
         'php_unit_data_provider_name' => false,
+        'php_unit_data_provider_return_type' => false,
         'php_unit_data_provider_static' => false,
         'php_unit_dedicate_assert' => false,
         'php_unit_dedicate_assert_internal_type' => false,
@@ -271,6 +272,7 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'visibility_required' => false,
         'void_return' => false,
         'whitespace_after_comma_in_array' => false,
+        'yield_from_array_to_yields' => false,
         'yoda_style' => false,
     ];
 
