@@ -20,7 +20,7 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
 #[Framework\Attributes\CoversClass(RuleSet\Custom::class)]
 final class CustomTest extends ExplicitRuleSetTestCase
 {
-    protected string $name = 'custom';
+    protected string $name = 'custom (PHP 8.1)';
 
     protected array $rules = [
         'align_multiline_comment' => false,
@@ -281,5 +281,5 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'yoda_style' => false,
     ];
 
-    protected int $targetPhpVersion = 70400;
+    protected int $targetPhpVersion = 80100;
 }
