@@ -135,7 +135,6 @@ final class Custom extends AbstractRuleSet implements ExplicitRuleSet
         'no_space_around_double_colon' => false,
         'no_spaces_after_function_name' => false,
         'no_spaces_around_offset' => false,
-        'no_spaces_inside_parenthesis' => false,
         'no_superfluous_elseif' => false,
         'no_superfluous_phpdoc_tags' => false,
         'no_trailing_comma_in_singleline' => false,
