@@ -15,7 +15,7 @@ namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
 final class Custom extends AbstractRuleSet implements ExplicitRuleSet
 {
-    protected string $name = 'custom (PHP 7.4)';
+    protected string $name = 'custom';
 
     protected array $rules = [
         'align_multiline_comment' => false,

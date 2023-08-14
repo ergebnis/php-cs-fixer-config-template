@@ -20,7 +20,7 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
 #[Framework\Attributes\CoversClass(RuleSet\Custom::class)]
 final class CustomTest extends ExplicitRuleSetTestCase
 {
-    protected string $name = 'custom (PHP 7.4)';
+    protected string $name = 'custom';
 
     protected array $rules = [
         'align_multiline_comment' => false,
