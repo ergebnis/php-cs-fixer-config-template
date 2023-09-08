@@ -1,4 +1,4 @@
-# https://github.com/probot/settings
+# https://github.com/repository-settings/app
 
 branches:
   - name: "main"
@@ -73,7 +73,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":octocat: + :notebook: Provides a GitHub template repository for a configuration factory and a custom rule set for friendsofphp/php-cs-fixer."
+  description: ":octocat: + :ledger: Provides a GitHub repository template for a configuration factory and a custom rule set for friendsofphp/php-cs-fixer."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
