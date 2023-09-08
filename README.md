@@ -35,6 +35,8 @@ Create a configuration file `.php-cs-fixer.php` in the root of your project:
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
@@ -62,6 +64,8 @@ All configuration examples use the caching feature, and if you want to use it as
 
 ```diff
  <?php
+
+ declare(strict_types=1);
 
  use Ergebnis\PhpCsFixer\Config;
 
@@ -105,6 +109,8 @@ file headers will be added to PHP files, for example:
 
 ```diff
  <?php
+
+ declare(strict_types=1);
 
  use Ergebnis\PhpCsFixer\Config;
 
