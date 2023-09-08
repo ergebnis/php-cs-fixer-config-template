@@ -56,8 +56,6 @@ All configuration examples use the caching feature, and if you want to use it as
  /vendor/
 ```
 
-:bulb: Personally, I prefer to use a `.build` directory for storing build artifacts.
-
 ### Configuration with header
 
 :bulb: Optionally specify a header:
