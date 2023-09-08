@@ -271,7 +271,7 @@ This package uses the [MIT license](LICENSE.md).
 
 ## Credits
 
-This project is inspired by [`ergebnis/php-cs-fixer-config`](https://github.com/ergebnis/php-cs-fixer-config).
+This package is inspired by [`ergebnis/php-cs-fixer-config`](https://github.com/ergebnis/php-cs-fixer-config).
 
 ## Social
 
