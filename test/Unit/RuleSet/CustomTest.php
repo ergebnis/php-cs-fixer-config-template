@@ -98,6 +98,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
         'linebreak_after_opening_tag' => false,
         'list_syntax' => false,
         'logical_operators' => false,
+        'long_to_shorthand_operator' => false,
         'lowercase_cast' => false,
         'lowercase_keywords' => false,
         'lowercase_static_reference' => false,
