@@ -20,29 +20,25 @@ final class Factory
     /**
      * Creates a configuration based on a rule set.
      *
-     * @param array<string, array<string, mixed>|bool> $overrideRules
-     *
      * @throws \RuntimeException
      */
-    public static function fromRuleSet(
-        RuleSet $ruleSet,
-        array $overrideRules = [],
-    ): Config {
-        if (\PHP_VERSION_ID < $ruleSet->targetPhpVersion()) {
+    public static function fromRuleSet(RuleSet $ruleSet): Config
+    {
+        $currentPhpVersion = PhpVersion::current();
+
+        if ($currentPhpVersion->isSmallerThan($ruleSet->phpVersion())) {
             throw new \RuntimeException(\sprintf(
-                'Current PHP version "%s" is less than targeted PHP version "%s".',
-                \PHP_VERSION_ID,
-                $ruleSet->targetPhpVersion(),
+                'Current PHP version "%s" is smaller than targeted PHP version "%s".',
+                $currentPhpVersion->toString(),
+                $ruleSet->phpVersion()->toString(),
             ));
         }
 
-        $config = new Config($ruleSet->name());
+        $config = new Config($ruleSet->name()->toString());
 
+        $config->registerCustomFixers($ruleSet->customFixers()->toArray());
         $config->setRiskyAllowed(true);
-        $config->setRules(\array_merge(
-            $ruleSet->rules(),
-            $overrideRules,
-        ));
+        $config->setRules($ruleSet->rules()->toArray());
 
         return $config;
     }

@@ -26,7 +26,9 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Custom($license->header()));
+$ruleSet = PhpCsFixer\Config\RuleSet\Custom::create()->withHeader($license->header());
+
+$config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 
 $config->getFinder()
     ->exclude([
