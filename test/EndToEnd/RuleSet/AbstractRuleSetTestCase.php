@@ -47,6 +47,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                     self::configPath(),
                 ),
                 '--dry-run',
+                self::configPath(),
             ],
             null,
             [
@@ -93,7 +94,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
 declare(strict_types=1);
 
-$config = Ergebnis\PhpCsFixer\Config\Factory::fromRuleSet(new %s(''));
+$ruleSet = %s::create('');
+
+$config = Ergebnis\PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 
 $config->getFinder()
     ->exclude([

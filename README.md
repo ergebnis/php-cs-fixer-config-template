@@ -39,7 +39,9 @@ declare(strict_types=1);
 
 use Ergebnis\PhpCsFixer\Config;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
+$ruleSet = Config\RuleSet\Custom::create();
+
+$config = Config\Factory::fromRuleSet($ruleSet);
 
 $config->getFinder()->in(__DIR__);
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
@@ -68,7 +70,7 @@ All configuration examples use the caching feature, and if you want to use it as
  use Ergebnis\PhpCsFixer\Config;
 
 +$header = <<<EOF
-+Copyright (c) 2022 Andreas Möller
++Copyright (c) 2023 Andreas Möller
 +
 +For the full copyright and license information, please view
 +the LICENSE file that was distributed with this source code.
@@ -76,8 +78,10 @@ All configuration examples use the caching feature, and if you want to use it as
 +@see https://github.com/ergebnis/php-cs-fixer-config-template
 +EOF;
 
--$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
-+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom($header));
+-$ruleSet = Config\RuleSet\Custom::create();
++$ruleSet = Config\RuleSet\Custom::create()->withHeader($header);
+
+ $config = Config\Factory::fromRuleSet($ruleSet);
 
  $config->getFinder()->in(__DIR__);
  $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
@@ -85,20 +89,21 @@ All configuration examples use the caching feature, and if you want to use it as
  return $config;
 ```
 
-This will enable and configure the [`HeaderCommentFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.1.1/src/Fixer/Comment/HeaderCommentFixer.php), so that
-file headers will be added to PHP files, for example:
+This will enable and configure the [`HeaderCommentFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.1.1/src/Fixer/Comment/HeaderCommentFixer.php), so that file headers will be added to PHP files, for example:
 
-```php
-<?php
+```diff
+ <?php
 
-/**
- * Copyright (c) 2022 Andreas Möller
- *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- *
- * @see https://github.com/ergebnis/php-cs-fixer-config-template
- */
+ declare(strict_types=1);
+
++/**
++ * Copyright (c) 2023 Andreas Möller
++ *
++ * For the full copyright and license information, please view
++ * the LICENSE file that was distributed with this source code.
++ *
++ * @see https://github.com/ergebnis/php-cs-fixer-config
++ */
 ```
 
 ### Configuration with override rules
@@ -112,11 +117,47 @@ file headers will be added to PHP files, for example:
 
  use Ergebnis\PhpCsFixer\Config;
 
--$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom());
-+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Custom(), [
+-$ruleSet = Config\RuleSet\Custom::create();
++$ruleSet = Config\RuleSet\Custom::create()->withRules(Config\Rules::fromArray([
 +    'mb_str_functions' => false,
 +    'strict_comparison' => false,
 +]);
+
+ $config = Config\Factory::fromRuleSet($ruleSet);
+
+ $config->getFinder()->in(__DIR__);
+ $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
+
+ return $config;
+```
+
+### Configuring a rule set that registers and configures rules for custom fixers
+
+:bulb: Optionally register and configure rules for custom fixers:
+
+```diff
+ <?php
+
+ declare(strict_types=1);
+
+ use Ergebnis\PhpCsFixer\Config;
+ use FooBar\Fixer;
+
+-$ruleSet = Config\RuleSet\Custom::create();
++$ruleSet = Config\RuleSet\Custom::create()
++    ->withCustomFixers(Config\Fixers::fromFixers(
++        new Fixer\BarBazFixer(),
++        new Fixer\QuzFixer(),
++    ))
++    ->withRules(Config\Rules::fromArray([
++        'FooBar/bar_baz' => true,
++        'FooBar/quz' => [
++            'qux => false,
++        ],
++    ]))
++]);
+
+ $config = Config\Factory::fromRuleSet($ruleSet);
 
  $config->getFinder()->in(__DIR__);
  $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
