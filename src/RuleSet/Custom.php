@@ -44,6 +44,7 @@ final class Custom
                 'array_push' => false,
                 'array_syntax' => false,
                 'assign_null_coalescing_to_coalesce_equal' => false,
+                'attribute_empty_parentheses' => false,
                 'backtick_to_shell_exec' => false,
                 'binary_operator_spaces' => false,
                 'blank_line_after_namespace' => false,
