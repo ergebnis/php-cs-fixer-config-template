@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49cddc0df44fbf36ed9c0dd84f92d98d",
+    "content-hash": "a00e44e06ec49fa6fb0a86abaf9a051d",
     "packages": [
         {
             "name": "composer/pcre",
@@ -226,16 +226,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.33.0",
+            "version": "v3.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "cecdeaa19767a4ab69c45c02f900e16c3300bf3b"
+                "reference": "7c7a4ad2ed8fe50df3e25528218b13d383608f23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/cecdeaa19767a4ab69c45c02f900e16c3300bf3b",
-                "reference": "cecdeaa19767a4ab69c45c02f900e16c3300bf3b",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/7c7a4ad2ed8fe50df3e25528218b13d383608f23",
+                "reference": "7c7a4ad2ed8fe50df3e25528218b13d383608f23",
                 "shasum": ""
             },
             "require": {
@@ -312,7 +312,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.33.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.34.0"
             },
             "funding": [
                 {
@@ -320,7 +320,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-29T15:10:48+00:00"
+            "time": "2023-09-29T15:34:26+00:00"
         },
         {
             "name": "psr/container",
