@@ -143,7 +143,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
             'native_constant_invocation' => false,
             'native_function_casing' => false,
             'native_function_invocation' => false,
-            'native_function_type_declaration_casing' => false,
+            'native_type_declaration_casing' => false,
             'new_with_parentheses' => false,
             'no_alias_functions' => false,
             'no_alias_language_construct_call' => false,
