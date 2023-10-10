@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
+use Ergebnis\Rector\Rules;
 use Rector\Config;
 use Rector\Core;
 use Rector\Php81;
@@ -30,6 +31,7 @@ return static function (Config\RectorConfig $rectorConfig): void {
 
     $rectorConfig->rules([
         Php81\Rector\Property\ReadOnlyPropertyRector::class,
+        Rules\Arrays\SortAssociativeArrayByKeyRector::class,
     ]);
 
     $rectorConfig->sets([

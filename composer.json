@@ -1,6 +1,6 @@
 {
   "name": "ergebnis/php-cs-fixer-config-template",
-  "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
+  "description": "Provides a GitHub repository template for a configuration factory and rule set factories for friendsofphp/php-cs-fixer.",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -17,7 +17,7 @@
     "security": "https://github.com/ergebnis/php-cs-fixer-config-template/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~8.1.0 || ~8.2.0",
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "friendsofphp/php-cs-fixer": "~3.34.1"
   },
   "require-dev": {
@@ -25,6 +25,7 @@
     "ergebnis/data-provider": "^3.0.0",
     "ergebnis/license": "^2.2.0",
     "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+    "ergebnis/rector-rules": "~0.1.0",
     "fakerphp/faker": "^1.23.0",
     "phpunit/phpunit": "^10.4.1",
     "psalm/plugin-phpunit": "~0.18.4",
@@ -45,8 +46,7 @@
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
       "ergebnis/composer-normalize": true,
-      "phpstan/extension-installer": true,
-      "infection/extension-installer": true
+      "phpstan/extension-installer": true
     },
     "audit": {
       "abandoned": "report"

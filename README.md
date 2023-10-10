@@ -12,7 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/php-cs-fixer-config-template/d/monthly)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
-This package provides a configuration factory and a rule set for [`friendsofphp/php-cs-fixer`](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer).
+This package provides a configuration factory and rule set factories for [`friendsofphp/php-cs-fixer`](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer).
 
 ## Installation
 
@@ -58,7 +58,7 @@ All configuration examples use the caching feature, and if you want to use it as
  /vendor/
 ```
 
-### Configuration with header
+### Configuring a rule set with header
 
 :bulb: Optionally specify a header:
 
@@ -106,9 +106,9 @@ This will enable and configure the [`HeaderCommentFixer`](https://github.com/Fri
 + */
 ```
 
-### Configuration with override rules
+### Configuring a rule set that overrides rules
 
-:bulb: Optionally override rules from a rule set by passing in an array of rules to be merged in:
+:bulb: Optionally override rules from a rule set by passing a set of rules to be merged in:
 
 ```diff
  <?php
