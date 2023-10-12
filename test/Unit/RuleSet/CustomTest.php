@@ -239,6 +239,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
             'phpdoc_order' => false,
             'phpdoc_order_by_value' => false,
             'phpdoc_param_order' => false,
+            'phpdoc_readonly_class_comment_to_keyword' => false,
             'phpdoc_return_self_reference' => false,
             'phpdoc_scalar' => false,
             'phpdoc_separation' => false,
