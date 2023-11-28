@@ -3,9 +3,7 @@
 version: 2
 
 updates:
-  - allow:
-      - dependency-type: "development"
-    commit-message:
+  - commit-message:
       include: "scope"
       prefix: "composer"
     directory: "/"
