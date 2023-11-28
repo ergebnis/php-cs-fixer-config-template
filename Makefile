@@ -11,11 +11,11 @@ coding-standards: vendor ## Lints YAML files with yamllint, normalizes composer.
 	yamllint -c .yamllint.yaml --strict .
 	composer normalize
 	mkdir -p .build/php-cs-fixer/
-	PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
 
 .PHONY: dependency-analysis
 dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/composer-require-checker
-	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
+	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json --verbose
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
