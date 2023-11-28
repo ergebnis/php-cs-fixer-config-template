@@ -121,7 +121,7 @@ This will enable and configure the [`HeaderCommentFixer`](https://github.com/Fri
 +$ruleSet = Config\RuleSet\Custom::create()->withRules(Config\Rules::fromArray([
 +    'mb_str_functions' => false,
 +    'strict_comparison' => false,
-+]);
++]));
 
  $config = Config\Factory::fromRuleSet($ruleSet);
 
