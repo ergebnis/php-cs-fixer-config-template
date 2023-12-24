@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
+namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
+
 use Ergebnis\DataProvider;
 use Ergebnis\PhpCsFixer\Config\Name;
 use Ergebnis\PhpCsFixer\Config\PhpVersion;

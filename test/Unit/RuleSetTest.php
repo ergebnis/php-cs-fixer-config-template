@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
+namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
+
 use Ergebnis\PhpCsFixer\Config\Fixers;
 use Ergebnis\PhpCsFixer\Config\Name;
 use Ergebnis\PhpCsFixer\Config\PhpVersion;
@@ -190,7 +192,7 @@ final class RuleSetTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: string}>
      */
-    public static function provideValidHeader(): Generator
+    public static function provideValidHeader(): \Generator
     {
         $values = [
             'string-empty' => '',

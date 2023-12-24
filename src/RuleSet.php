@@ -19,7 +19,7 @@ final class RuleSet
         private readonly Fixers $customFixers,
         private readonly Name $name,
         private readonly PhpVersion $phpVersion,
-        private readonly Rules $rules,
+        private readonly Rules $rules
     ) {
     }
 
@@ -27,7 +27,7 @@ final class RuleSet
         Fixers $customFixers,
         Name $name,
         PhpVersion $phpVersion,
-        Rules $rules,
+        Rules $rules
     ): self {
         return new self(
             $customFixers,

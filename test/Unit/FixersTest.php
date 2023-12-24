@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
+namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
+
 use Ergebnis\PhpCsFixer\Config\Fixers;
 use PhpCsFixer\Fixer;
 use PHPUnit\Framework;
@@ -51,7 +53,7 @@ final class FixersTest extends Framework\TestCase
             \sprintf(
                 'Expected iterable to contain only instances of %s, got %s instead.',
                 Fixer\FixerInterface::class,
-                stdClass::class,
+                \stdClass::class,
             ),
         );
 
@@ -79,7 +81,7 @@ final class FixersTest extends Framework\TestCase
             $this->createStub(Fixer\FixerInterface::class),
         ];
 
-        $iterable = new ArrayIterator($value);
+        $iterable = new \ArrayIterator($value);
 
         $fixers = Fixers::fromIterable($iterable);
 
