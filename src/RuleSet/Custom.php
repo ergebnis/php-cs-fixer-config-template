@@ -56,6 +56,7 @@ final class Custom
                 'cast_spaces' => false,
                 'class_attributes_separation' => false,
                 'class_definition' => false,
+                'class_keyword' => false,
                 'class_reference_name_casing' => false,
                 'clean_namespace' => false,
                 'combine_consecutive_issets' => false,
