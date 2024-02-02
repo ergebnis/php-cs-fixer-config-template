@@ -234,6 +234,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
             'phpdoc_indent' => false,
             'phpdoc_inline_tag_normalizer' => false,
             'phpdoc_line_span' => false,
+            'phpdoc_list_type' => false,
             'phpdoc_no_access' => false,
             'phpdoc_no_alias_tag' => false,
             'phpdoc_no_empty_return' => false,
