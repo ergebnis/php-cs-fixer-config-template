@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/php-cs-fixer-config-template` have active support:
 
-- `^x.y.z`
+- `x.y.z`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/php-cs-fixer-config-template` have reached their end of life:
 
-- `<x.y.z`
+- `x.y.z`
 
 ## Reporting a Vulnerability
 
