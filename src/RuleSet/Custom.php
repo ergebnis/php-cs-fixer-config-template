@@ -219,6 +219,7 @@ final class Custom
                 'phpdoc_add_missing_param_annotation' => false,
                 'phpdoc_align' => false,
                 'phpdoc_annotation_without_dot' => false,
+                'phpdoc_array_type' => false,
                 'phpdoc_indent' => false,
                 'phpdoc_inline_tag_normalizer' => false,
                 'phpdoc_line_span' => false,
