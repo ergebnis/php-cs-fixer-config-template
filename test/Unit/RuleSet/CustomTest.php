@@ -203,6 +203,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
             'object_operator_without_whitespace' => false,
             'octal_notation' => false,
             'operator_linebreak' => false,
+            'ordered_attributes' => false,
             'ordered_class_elements' => false,
             'ordered_imports' => false,
             'ordered_interfaces' => false,
