@@ -197,6 +197,7 @@ final class Custom
                 'ordered_interfaces' => false,
                 'ordered_traits' => false,
                 'ordered_types' => false,
+                'php_unit_assert_new_names' => false,
                 'php_unit_attributes' => false,
                 'php_unit_construct' => false,
                 'php_unit_data_provider_name' => false,
