@@ -39,9 +39,9 @@ final class RuleSetTest extends Framework\TestCase
         $faker = self::faker();
 
         $customFixers = Fixers::fromFixers(
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         );
         $name = Name::fromString($faker->word());
         $phpVersion = PhpVersion::create(
@@ -71,15 +71,15 @@ final class RuleSetTest extends Framework\TestCase
         $faker = self::faker();
 
         $customFixers = Fixers::fromFixers(
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         );
 
         $ruleSet = RuleSet::create(
             Fixers::fromFixers(
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
             ),
             Name::fromString($faker->word()),
             PhpVersion::create(
@@ -116,9 +116,9 @@ final class RuleSetTest extends Framework\TestCase
 
         $ruleSet = RuleSet::create(
             Fixers::fromFixers(
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
             ),
             Name::fromString($faker->word()),
             PhpVersion::create(
@@ -152,9 +152,9 @@ final class RuleSetTest extends Framework\TestCase
 
         $ruleSet = RuleSet::create(
             Fixers::fromFixers(
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
-                $this->createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
+                self::createStub(Fixer\FixerInterface::class),
             ),
             Name::fromString($faker->word()),
             PhpVersion::create(

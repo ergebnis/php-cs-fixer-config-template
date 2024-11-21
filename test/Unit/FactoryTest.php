@@ -66,9 +66,9 @@ final class FactoryTest extends Framework\TestCase
     public function testFromRuleSetCreatesConfigWhenCurrentPhpVersionIsEqualToOrGreaterThanTargetPhpVersion(PhpVersion $targetPhpVersion): void
     {
         $customFixers = Fixers::fromFixers(
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         );
 
         $rules = Rules::fromArray([

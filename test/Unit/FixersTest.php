@@ -30,9 +30,9 @@ final class FixersTest extends Framework\TestCase
     public function testFromFixersReturnsFixers(): void
     {
         $value = [
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         ];
 
         $fixers = Fixers::fromFixers(...$value);
@@ -43,9 +43,9 @@ final class FixersTest extends Framework\TestCase
     public function testFromIterableRejectsInvalidValue(): void
     {
         $value = [
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
             new \stdClass(),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         ];
 
         $this->expectException(\InvalidArgumentException::class);
@@ -63,9 +63,9 @@ final class FixersTest extends Framework\TestCase
     public function testFromIterableReturnsFixersWhenValueIsArray(): void
     {
         $value = [
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         ];
 
         $fixers = Fixers::fromIterable($value);
@@ -76,9 +76,9 @@ final class FixersTest extends Framework\TestCase
     public function testFromIterableReturnsFixersWhenValueIsTraversable(): void
     {
         $value = [
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         ];
 
         $iterable = new \ArrayIterator($value);
@@ -91,14 +91,14 @@ final class FixersTest extends Framework\TestCase
     public function testMergeReturnsFixersMergedWithFixers(): void
     {
         $one = Fixers::fromFixers(
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         );
 
         $two = Fixers::fromFixers(
-            $this->createStub(Fixer\FixerInterface::class),
-            $this->createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
+            self::createStub(Fixer\FixerInterface::class),
         );
 
         $mutated = $one->merge($two);
