@@ -1,0 +1,47 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Instanceof between PhpCsFixer\\\\Fixer\\\\FixerInterface and PhpCsFixer\\\\Fixer\\\\FixerInterface will always evaluate to true\\.$#"
+			count: 1
+			path: src/Fixers.php
+
+		-
+			message: "#^Property Ergebnis\\\\PhpCsFixer\\\\Config\\\\Fixers\\:\\:\\$value \\(array\\<int, PhpCsFixer\\\\Fixer\\\\FixerInterface\\>\\) does not accept array\\<int\\|string, PhpCsFixer\\\\Fixer\\\\FixerInterface\\>\\.$#"
+			count: 1
+			path: src/Fixers.php
+
+		-
+			message: "#^Property Ergebnis\\\\PhpCsFixer\\\\Config\\\\Rules\\:\\:\\$value type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Rules.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:createStub\\(\\)\\.$#"
+			count: 3
+			path: test/Unit/FactoryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:createStub\\(\\)\\.$#"
+			count: 16
+			path: test/Unit/FixersTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterable of static method Ergebnis\\\\PhpCsFixer\\\\Config\\\\Fixers\\:\\:fromIterable\\(\\) expects iterable\\<PhpCsFixer\\\\Fixer\\\\FixerInterface\\>, array\\<int, \\(PhpCsFixer\\\\Fixer\\\\FixerInterface&PHPUnit\\\\Framework\\\\MockObject\\\\Stub\\)\\|stdClass\\> given\\.$#"
+			count: 1
+			path: test/Unit/FixersTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PhpCsFixer\\\\Config\\\\Test\\\\Unit\\\\RuleSet\\\\AbstractRuleSetTestCase\\:\\:sort\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/Unit/RuleSet/AbstractRuleSetTestCase.php
+
+		-
+			message: "#^Method Ergebnis\\\\PhpCsFixer\\\\Config\\\\Test\\\\Unit\\\\RuleSet\\\\AbstractRuleSetTestCase\\:\\:sort\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/Unit/RuleSet/AbstractRuleSetTestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:createStub\\(\\)\\.$#"
+			count: 14
+			path: test/Unit/RuleSetTest.php
+
