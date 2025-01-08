@@ -31,6 +31,12 @@ parameters:
 			path: src/Rules.php
 
 		-
+			message: '#^Class "Ergebnis\\PhpCsFixer\\Config\\Test\\EndToEnd\\RuleSet\\CustomTest" is not allowed to extend "Ergebnis\\PhpCsFixer\\Config\\Test\\EndToEnd\\RuleSet\\AbstractRuleSetTestCase"\.$#'
+			identifier: ergebnis.noExtends
+			count: 1
+			path: test/EndToEnd/RuleSet/CustomTest.php
+
+		-
 			message: '#^Parameter \#1 \$iterable of static method Ergebnis\\PhpCsFixer\\Config\\Fixers\:\:fromIterable\(\) expects iterable\<PhpCsFixer\\Fixer\\FixerInterface\>, array\<int, \(PhpCsFixer\\Fixer\\FixerInterface&PHPUnit\\Framework\\MockObject\\Stub\)\|stdClass\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -47,4 +53,16 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: test/Unit/RuleSet/AbstractRuleSetTestCase.php
+
+		-
+			message: '#^Class "Ergebnis\\PhpCsFixer\\Config\\Test\\Unit\\RuleSet\\CustomTest" is not allowed to extend "Ergebnis\\PhpCsFixer\\Config\\Test\\Unit\\RuleSet\\ExplicitRuleSetTestCase"\.$#'
+			identifier: ergebnis.noExtends
+			count: 1
+			path: test/Unit/RuleSet/CustomTest.php
+
+		-
+			message: '#^Class "Ergebnis\\PhpCsFixer\\Config\\Test\\Unit\\RuleSet\\ExplicitRuleSetTestCase" is not allowed to extend "Ergebnis\\PhpCsFixer\\Config\\Test\\Unit\\RuleSet\\AbstractRuleSetTestCase"\.$#'
+			identifier: ergebnis.noExtends
+			count: 1
+			path: test/Unit/RuleSet/ExplicitRuleSetTestCase.php
 
