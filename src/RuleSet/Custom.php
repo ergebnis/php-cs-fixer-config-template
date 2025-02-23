@@ -201,6 +201,7 @@ final class Custom
                 'php_unit_assert_new_names' => false,
                 'php_unit_attributes' => false,
                 'php_unit_construct' => false,
+                'php_unit_data_provider_method_order' => false,
                 'php_unit_data_provider_name' => false,
                 'php_unit_data_provider_return_type' => false,
                 'php_unit_data_provider_static' => false,
