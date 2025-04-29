@@ -24,7 +24,7 @@ final class Fixers
 
     private function __construct(Fixer\FixerInterface ...$value)
     {
-        $this->value = $value;
+        $this->value = array_values($value);
     }
 
     public static function empty(): self

@@ -7,18 +7,6 @@ parameters:
 			path: src/Fixers.php
 
 		-
-			message: '#^Property Ergebnis\\PhpCsFixer\\Config\\Fixers\:\:\$value \(list\<PhpCsFixer\\Fixer\\FixerInterface\>\) does not accept array\<int\|string, PhpCsFixer\\Fixer\\FixerInterface\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Fixers.php
-
-		-
-			message: '#^Method Ergebnis\\PhpCsFixer\\Config\\Rules\:\:toArray\(\) should return array\<string, array\<string, mixed\>\|bool\> but returns array\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Rules.php
-
-		-
 			message: '#^Parameter \#1 \$value of class Ergebnis\\PhpCsFixer\\Config\\Rules constructor expects array\<string, array\<string, mixed\>\|bool\>, array given\.$#'
 			identifier: argument.type
 			count: 1
