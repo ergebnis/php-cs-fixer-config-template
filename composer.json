@@ -18,7 +18,7 @@
   },
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
-    "friendsofphp/php-cs-fixer": "~3.81.0"
+    "friendsofphp/php-cs-fixer": "~3.82.0"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.47.0",
