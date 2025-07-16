@@ -192,6 +192,7 @@ final class CustomTest extends ExplicitRuleSetTestCase
             'no_useless_concat_operator' => false,
             'no_useless_else' => false,
             'no_useless_nullsafe_operator' => false,
+            'no_useless_printf' => false,
             'no_useless_return' => false,
             'no_useless_sprintf' => false,
             'no_whitespace_before_comma_in_array' => false,
