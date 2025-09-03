@@ -247,6 +247,7 @@ final class Custom
                 'phpdoc_single_line_var_spacing' => false,
                 'phpdoc_summary' => false,
                 'phpdoc_tag_casing' => false,
+                'phpdoc_tag_no_named_arguments' => false,
                 'phpdoc_tag_type' => false,
                 'phpdoc_to_comment' => false,
                 'phpdoc_to_param_type' => false,
