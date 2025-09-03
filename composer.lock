@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "364dcf40191731ade2fd9c06dd138e4f",
+    "content-hash": "47a4d23f026d18f11afb26e70d4eebfa",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -3209,27 +3209,27 @@
         },
         {
             "name": "ergebnis/data-provider",
-            "version": "3.4.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/data-provider.git",
-                "reference": "a902a3d71c619bca787a9350ec313c5b34fb14c0"
+                "reference": "db11d3e1e571b879e59e03b68376d29f0630dada"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/data-provider/zipball/a902a3d71c619bca787a9350ec313c5b34fb14c0",
-                "reference": "a902a3d71c619bca787a9350ec313c5b34fb14c0",
+                "url": "https://api.github.com/repos/ergebnis/data-provider/zipball/db11d3e1e571b879e59e03b68376d29f0630dada",
+                "reference": "db11d3e1e571b879e59e03b68376d29f0630dada",
                 "shasum": ""
             },
             "require": {
                 "fakerphp/faker": "^1.21.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.44.0",
-                "ergebnis/license": "^2.6.0",
-                "ergebnis/php-cs-fixer-config": "^6.37.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.16.1",
+                "ergebnis/composer-normalize": "^2.48.1",
+                "ergebnis/license": "^2.7.0",
+                "ergebnis/php-cs-fixer-config": "^6.53.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.20.0",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan": "^1.12.10",
@@ -3275,7 +3275,7 @@
                 "issues": "https://github.com/ergebnis/data-provider/issues",
                 "source": "https://github.com/ergebnis/data-provider"
             },
-            "time": "2024-11-18T06:55:13+00:00"
+            "time": "2025-09-01T20:26:53+00:00"
         },
         {
             "name": "ergebnis/json",
