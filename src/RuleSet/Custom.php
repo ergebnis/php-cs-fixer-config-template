@@ -299,6 +299,7 @@ final class Custom
                 'string_implicit_backslashes' => false,
                 'string_length_to_empty' => false,
                 'string_line_ending' => false,
+                'stringable_for_to_string' => false,
                 'switch_case_semicolon_to_colon' => false,
                 'switch_case_space' => false,
                 'switch_continue_to_break' => false,
