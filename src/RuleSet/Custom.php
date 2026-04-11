@@ -189,6 +189,7 @@ final class Custom
                 'no_useless_sprintf' => false,
                 'no_whitespace_before_comma_in_array' => false,
                 'no_whitespace_in_blank_line' => false,
+                'no_whitespace_in_empty_array' => false,
                 'non_printable_character' => false,
                 'normalize_index_brace' => false,
                 'not_operator_with_space' => false,
