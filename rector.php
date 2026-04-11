@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/php-cs-fixer-config-template
  */
 
-use Ergebnis\Rector\Rules;
+use Ergebnis\Rector;
 use Rector\Config;
 use Rector\Php81;
 use Rector\PHPUnit;
@@ -31,11 +31,11 @@ return static function (Config\RectorConfig $rectorConfig): void {
 
     $rectorConfig->rules([
         Php81\Rector\Property\ReadOnlyPropertyRector::class,
-        Rules\Expressions\Arrays\SortAssociativeArrayByKeyRector::class,
-        Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
+        Rector\Rules\Expressions\Arrays\SortAssociativeArrayByKeyRector::class,
+        Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
     ]);
 
-    $rectorConfig->ruleWithConfiguration(Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class, [
+    $rectorConfig->ruleWithConfiguration(Rector\Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class, [
         'discoverNamespacePrefixes' => true,
         'parentNamespacePrefixes' => [
             'Symfony\Component',
