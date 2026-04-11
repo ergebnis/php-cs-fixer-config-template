@@ -31,7 +31,7 @@ return static function (Config\RectorConfig $rectorConfig): void {
 
     $rectorConfig->rules([
         Php81\Rector\Property\ReadOnlyPropertyRector::class,
-        Rules\Arrays\SortAssociativeArrayByKeyRector::class,
+        Rules\Expressions\Arrays\SortAssociativeArrayByKeyRector::class,
         Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
     ]);
 
