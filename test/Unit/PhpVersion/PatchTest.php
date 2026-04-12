@@ -14,14 +14,13 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit\PhpVersion;
 
 use Ergebnis\DataProvider;
-use Ergebnis\PhpCsFixer\Config\PhpVersion;
-use Ergebnis\PhpCsFixer\Config\Test;
+use Ergebnis\PhpCsFixer;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(PhpVersion\Patch::class)]
+#[Framework\Attributes\CoversClass(PhpCsFixer\Config\PhpVersion\Patch::class)]
 final class PatchTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use PhpCsFixer\Config\Test\Util\Helper;
 
     #[Framework\Attributes\DataProviderExternal(DataProvider\IntProvider::class, 'lessThanZero')]
     public function testFromIntRejectsValueLessThanZero(int $value): void
@@ -32,7 +31,7 @@ final class PatchTest extends Framework\TestCase
             $value,
         ));
 
-        PhpVersion\Patch::fromInt($value);
+        PhpCsFixer\Config\PhpVersion\Patch::fromInt($value);
     }
 
     #[Framework\Attributes\DataProvider('provideValueGreaterThanNinetyNine')]
@@ -44,7 +43,7 @@ final class PatchTest extends Framework\TestCase
             $value,
         ));
 
-        PhpVersion\Patch::fromInt($value);
+        PhpCsFixer\Config\PhpVersion\Patch::fromInt($value);
     }
 
     /**
@@ -67,7 +66,7 @@ final class PatchTest extends Framework\TestCase
     #[Framework\Attributes\DataProvider('provideValidValue')]
     public function testFromIntReturnsPatch(int $value): void
     {
-        $patch = PhpVersion\Patch::fromInt($value);
+        $patch = PhpCsFixer\Config\PhpVersion\Patch::fromInt($value);
 
         self::assertSame($value, $patch->toInt());
     }

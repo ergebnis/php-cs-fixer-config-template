@@ -13,32 +13,28 @@ declare(strict_types=1);
 
 namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
-use Ergebnis\PhpCsFixer\Config\Fixers;
-use Ergebnis\PhpCsFixer\Config\Name;
-use Ergebnis\PhpCsFixer\Config\PhpVersion;
-use Ergebnis\PhpCsFixer\Config\Rules;
-use Ergebnis\PhpCsFixer\Config\RuleSet;
+use Ergebnis\PhpCsFixer;
 
 
 final class Custom
 {
-    public static function create(): RuleSet
+    public static function create(): PhpCsFixer\Config\RuleSet
     {
-        $phpVersion = PhpVersion::create(
-            PhpVersion\Major::fromInt(8),
-            PhpVersion\Minor::fromInt(1),
-            PhpVersion\Patch::fromInt(0),
+        $phpVersion = PhpCsFixer\Config\PhpVersion::create(
+            PhpCsFixer\Config\PhpVersion\Major::fromInt(8),
+            PhpCsFixer\Config\PhpVersion\Minor::fromInt(1),
+            PhpCsFixer\Config\PhpVersion\Patch::fromInt(0),
         );
 
-        return RuleSet::create(
-            Fixers::empty(),
-            Name::fromString(\sprintf(
+        return PhpCsFixer\Config\RuleSet::create(
+            PhpCsFixer\Config\Fixers::empty(),
+            PhpCsFixer\Config\Name::fromString(\sprintf(
                 'custom (PHP %d.%d)',
                 $phpVersion->major()->toInt(),
                 $phpVersion->minor()->toInt(),
             )),
             $phpVersion,
-            Rules::fromArray([
+            PhpCsFixer\Config\Rules::fromArray([
                 'align_multiline_comment' => false,
                 'array_indentation' => false,
                 'array_push' => false,
