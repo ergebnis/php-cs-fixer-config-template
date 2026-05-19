@@ -8,12 +8,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1c2b8be...main`][1c2b8be...main].
 
-### Removed
-
-- Removed development dependency on [`roave/backward-compatibility-check`](https://github.com/Roave/BackwardCompatibilityCheck) ([#1145]), by [@localheinz]
-
-[#1145]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1145
-
-[@localheinz]: https://github.com/localheinz
-
 [1c2b8be...main]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...main
