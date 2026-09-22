@@ -43,7 +43,7 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Approve pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/approve@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+        uses: "ergebnis/.github/actions/github/pull-request/approve@d8504dd0a4ef84e8afebdba5b1a4694d02ea687f" # 1.13.3
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
