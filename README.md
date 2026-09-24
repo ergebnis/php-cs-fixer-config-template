@@ -9,7 +9,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/v/stable)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 [![Total Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/downloads)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
-[![Monthly Downloads](http://poser.pugx.org/ergebnis/php-cs-fixer-config-template/d/monthly)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
+[![Monthly Downloads](https://poser.pugx.org/ergebnis/php-cs-fixer-config-template/d/monthly)](https://packagist.org/packages/ergebnis/php-cs-fixer-config-template)
 
 This project provides a [GitHub repository template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for a [`composer`](https://getcomposer.org) package with a configuration factory and rule set factories for [`friendsofphp/php-cs-fixer`](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer).
 
