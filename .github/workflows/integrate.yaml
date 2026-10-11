@@ -205,7 +205,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/phive/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           trust-gpg-keys: "0x033E5F8D801A2F8D"
 
