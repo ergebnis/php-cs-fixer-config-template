@@ -26,7 +26,7 @@
     "ergebnis/license": "^2.8.0",
     "ergebnis/phpstan-rules": "^2.14.2",
     "ergebnis/phpunit-slow-test-detector": "^2.27.0",
-    "ergebnis/rector-rules": "^1.18.5",
+    "ergebnis/rector-rules": "^1.19.0",
     "fakerphp/faker": "^1.24.1",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.2.16",
@@ -34,7 +34,7 @@
     "phpstan/phpstan-phpunit": "^2.1.1",
     "phpstan/phpstan-strict-rules": "^2.1.0",
     "phpunit/phpunit": "^10.5.62",
-    "rector/rector": "^2.7.0"
+    "rector/rector": "^2.8.3"
   },
   "autoload": {
     "psr-4": {
