@@ -26,7 +26,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Patch::class)]
 #[Framework\Attributes\UsesClass(PhpCsFixer\Config\Rules::class)]
 #[Framework\Attributes\UsesClass(PhpCsFixer\Config\RuleSet::class)]
-final class CustomTest extends PhpCsFixer\Config\Test\Unit\RuleSet\ExplicitRuleSetTestCase
+final class CustomTest extends ExplicitRuleSetTestCase
 {
     protected static function createRuleSet(): PhpCsFixer\Config\RuleSet
     {
