@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1c2b8be...main`][1c2b8be...main].
 
+### Added
+
+- Added support for PHP 8.6 ([#1312]), by [@localheinz]
+
 ### Changed
 
 - Allowed installation on PHP 8.6 ([#1243]), by [@localheinz]
@@ -15,5 +19,6 @@ For a full diff see [`1c2b8be...main`][1c2b8be...main].
 [1c2b8be...main]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...main
 
 [#1243]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1243
+[#1312]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1312
 
 [@localheinz]: https://github.com/localheinz
