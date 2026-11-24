@@ -15,10 +15,12 @@ For a full diff see [`1c2b8be...main`][1c2b8be...main].
 ### Changed
 
 - Allowed installation on PHP 8.6 ([#1243]), by [@localheinz]
+- Allowed installation on PHP 8.7 ([#1321]), by [@localheinz]
 
 [1c2b8be...main]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...main
 
 [#1243]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1243
 [#1312]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1312
+[#1321]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1321
 
 [@localheinz]: https://github.com/localheinz
