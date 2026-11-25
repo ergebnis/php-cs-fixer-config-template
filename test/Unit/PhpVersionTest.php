@@ -81,29 +81,29 @@ final class PhpVersionTest extends Framework\TestCase
         self::assertSame(\PHP_VERSION_ID, $phpVersion->toInt());
     }
 
-    public function testIsSmallerThanReturnsFalseWhenValueIsGreater(): void
+    public function testIsLessThanReturnsFalseWhenValueIsGreater(): void
     {
         $one = PhpCsFixer\Config\PhpVersion::fromInt(\PHP_VERSION_ID + 1);
         $two = PhpCsFixer\Config\PhpVersion::fromInt(\PHP_VERSION_ID);
 
-        self::assertFalse($one->isSmallerThan($two));
+        self::assertFalse($one->isLessThan($two));
     }
 
-    public function testIsSmallerThanReturnsFalseWhenValueIsSame(): void
+    public function testIsLessThanReturnsFalseWhenValueIsSame(): void
     {
         $value = \PHP_VERSION_ID;
 
         $one = PhpCsFixer\Config\PhpVersion::fromInt($value);
         $two = PhpCsFixer\Config\PhpVersion::fromInt($value);
 
-        self::assertFalse($one->isSmallerThan($two));
+        self::assertFalse($one->isLessThan($two));
     }
 
-    public function testIsSmallerThanReturnsTrueWhenValueIsSmaller(): void
+    public function testIsLessThanReturnsTrueWhenValueIsLess(): void
     {
         $one = PhpCsFixer\Config\PhpVersion::fromInt(\PHP_VERSION_ID);
         $two = PhpCsFixer\Config\PhpVersion::fromInt(\PHP_VERSION_ID + 1);
 
-        self::assertTrue($one->isSmallerThan($two));
+        self::assertTrue($one->isLessThan($two));
     }
 }

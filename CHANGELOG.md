@@ -16,11 +16,14 @@ For a full diff see [`1c2b8be...main`][1c2b8be...main].
 
 - Allowed installation on PHP 8.6 ([#1243]), by [@localheinz]
 - Allowed installation on PHP 8.7 ([#1321]), by [@localheinz]
+- Changed the exception message thrown by `Factory` to say less than instead of smaller than ([#1325]), by [@localheinz]
+- Renamed `PhpVersion::isSmallerThan()` to `PhpVersion::isLessThan()` ([#1325]), by [@localheinz]
 
 [1c2b8be...main]: https://github.com/ergebnis/php-cs-fixer-config-template/compare/1c2b8be...main
 
 [#1243]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1243
 [#1312]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1312
 [#1321]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1321
+[#1325]: https://github.com/ergebnis/php-cs-fixer-config-template/pull/1325
 
 [@localheinz]: https://github.com/localheinz
