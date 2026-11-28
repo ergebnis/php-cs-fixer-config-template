@@ -15,16 +15,17 @@ namespace Ergebnis\PhpCsFixer\Config\Test\Unit;
 
 use Ergebnis\DataProvider;
 use Ergebnis\PhpCsFixer;
+use Ergebnis\PhpCsFixer\Config;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(PhpCsFixer\Config\Name::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Major::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Minor::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Patch::class)]
+#[Framework\Attributes\CoversClass(Config\Name::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Major::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Minor::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Patch::class)]
 final class NameTest extends Framework\TestCase
 {
-    use PhpCsFixer\Config\Test\Util\Helper;
+    use Config\Test\Util\Helper;
 
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'blank')]
     #[Framework\Attributes\DataProviderExternal(DataProvider\StringProvider::class, 'empty')]
@@ -33,14 +34,14 @@ final class NameTest extends Framework\TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Value can not be blank or empty.');
 
-        PhpCsFixer\Config\Name::fromString($value);
+        Config\Name::fromString($value);
     }
 
     public function testFromStringReturnsName(): void
     {
         $value = self::faker()->word();
 
-        $name = PhpCsFixer\Config\Name::fromString($value);
+        $name = Config\Name::fromString($value);
 
         self::assertSame($value, $name->toString());
     }

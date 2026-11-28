@@ -14,27 +14,28 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\RuleSet;
 
 use Ergebnis\PhpCsFixer;
+use Ergebnis\PhpCsFixer\Config;
 
 
 final class Custom
 {
-    public static function create(): PhpCsFixer\Config\RuleSet
+    public static function create(): Config\RuleSet
     {
-        $phpVersion = PhpCsFixer\Config\PhpVersion::create(
-            PhpCsFixer\Config\PhpVersion\Major::fromInt(8),
-            PhpCsFixer\Config\PhpVersion\Minor::fromInt(1),
-            PhpCsFixer\Config\PhpVersion\Patch::fromInt(0),
+        $phpVersion = Config\PhpVersion::create(
+            Config\PhpVersion\Major::fromInt(8),
+            Config\PhpVersion\Minor::fromInt(1),
+            Config\PhpVersion\Patch::fromInt(0),
         );
 
-        return PhpCsFixer\Config\RuleSet::create(
-            PhpCsFixer\Config\Fixers::empty(),
-            PhpCsFixer\Config\Name::fromString(\sprintf(
+        return Config\RuleSet::create(
+            Config\Fixers::empty(),
+            Config\Name::fromString(\sprintf(
                 'custom (PHP %d.%d)',
                 $phpVersion->major()->toInt(),
                 $phpVersion->minor()->toInt(),
             )),
             $phpVersion,
-            PhpCsFixer\Config\Rules::fromArray([
+            Config\Rules::fromArray([
                 'align_multiline_comment' => false,
                 'array_indentation' => false,
                 'array_push' => false,

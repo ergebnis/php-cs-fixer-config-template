@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Ergebnis\License;
 use Ergebnis\PhpCsFixer;
+use Ergebnis\PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $license = License\Type\MIT::markdown(
@@ -27,7 +28,7 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$ruleSet = PhpCsFixer\Config\RuleSet\Custom::create()->withHeader($license->header());
+$ruleSet = Config\RuleSet\Custom::create()->withHeader($license->header());
 
 $finder = Finder::create()
     ->exclude([
@@ -38,7 +39,7 @@ $finder = Finder::create()
     ->ignoreDotFiles(false)
     ->in(__DIR__);
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
+$config = Config\Factory::fromRuleSet($ruleSet);
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 $config->setFinder($finder);
