@@ -14,38 +14,39 @@ declare(strict_types=1);
 namespace Ergebnis\PhpCsFixer\Config\Test\Unit\RuleSet;
 
 use Ergebnis\PhpCsFixer;
+use Ergebnis\PhpCsFixer\Config;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(PhpCsFixer\Config\RuleSet\Custom::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\Factory::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\Fixers::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\Name::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Major::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Minor::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\PhpVersion\Patch::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\Rules::class)]
-#[Framework\Attributes\UsesClass(PhpCsFixer\Config\RuleSet::class)]
+#[Framework\Attributes\CoversClass(Config\RuleSet\Custom::class)]
+#[Framework\Attributes\UsesClass(Config\Factory::class)]
+#[Framework\Attributes\UsesClass(Config\Fixers::class)]
+#[Framework\Attributes\UsesClass(Config\Name::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Major::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Minor::class)]
+#[Framework\Attributes\UsesClass(Config\PhpVersion\Patch::class)]
+#[Framework\Attributes\UsesClass(Config\Rules::class)]
+#[Framework\Attributes\UsesClass(Config\RuleSet::class)]
 final class CustomTest extends ExplicitRuleSetTestCase
 {
-    protected static function createRuleSet(): PhpCsFixer\Config\RuleSet
+    protected static function createRuleSet(): Config\RuleSet
     {
-        return PhpCsFixer\Config\RuleSet\Custom::create();
+        return Config\RuleSet\Custom::create();
     }
 
-    protected function expectedCustomFixers(): PhpCsFixer\Config\Fixers
+    protected function expectedCustomFixers(): Config\Fixers
     {
-        return PhpCsFixer\Config\Fixers::empty();
+        return Config\Fixers::empty();
     }
 
-    protected function expectedName(): PhpCsFixer\Config\Name
+    protected function expectedName(): Config\Name
     {
-        return PhpCsFixer\Config\Name::fromString('custom (PHP 8.1)');
+        return Config\Name::fromString('custom (PHP 8.1)');
     }
 
-    protected function expectedRules(): PhpCsFixer\Config\Rules
+    protected function expectedRules(): Config\Rules
     {
-        return PhpCsFixer\Config\Rules::fromArray([
+        return Config\Rules::fromArray([
             'align_multiline_comment' => false,
             'array_indentation' => false,
             'array_push' => false,
@@ -331,12 +332,12 @@ final class CustomTest extends ExplicitRuleSetTestCase
         ]);
     }
 
-    protected function expectedPhpVersion(): PhpCsFixer\Config\PhpVersion
+    protected function expectedPhpVersion(): Config\PhpVersion
     {
-        return PhpCsFixer\Config\PhpVersion::create(
-            PhpCsFixer\Config\PhpVersion\Major::fromInt(8),
-            PhpCsFixer\Config\PhpVersion\Minor::fromInt(1),
-            PhpCsFixer\Config\PhpVersion\Patch::fromInt(0),
+        return Config\PhpVersion::create(
+            Config\PhpVersion\Major::fromInt(8),
+            Config\PhpVersion\Minor::fromInt(1),
+            Config\PhpVersion\Patch::fromInt(0),
         );
     }
 }

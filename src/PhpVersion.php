@@ -15,18 +15,8 @@ namespace Ergebnis\PhpCsFixer\Config;
 
 final class PhpVersion
 {
-    private readonly PhpVersion\Major $major;
-    private readonly PhpVersion\Minor $minor;
-    private readonly PhpVersion\Patch $patch;
-
-    private function __construct(
-        PhpVersion\Major $major,
-        PhpVersion\Minor $minor,
-        PhpVersion\Patch $patch,
-    ) {
-        $this->major = $major;
-        $this->minor = $minor;
-        $this->patch = $patch;
+    private function __construct(private readonly PhpVersion\Major $major, private readonly PhpVersion\Minor $minor, private readonly PhpVersion\Patch $patch)
+    {
     }
 
     public static function create(

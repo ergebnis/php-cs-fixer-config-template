@@ -15,14 +15,11 @@ namespace Ergebnis\PhpCsFixer\Config;
 
 final class Rules
 {
-    private readonly array $value;
-
     /**
      * @param array<string, array<string, mixed>|bool> $value
      */
-    private function __construct(array $value)
+    private function __construct(private readonly array $value)
     {
-        $this->value = $value;
     }
 
     public static function empty(): self
